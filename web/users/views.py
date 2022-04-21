@@ -6,7 +6,8 @@ from rest_framework.response import Response
 
 class ActivateUser(GenericAPIView):
 
-    def get(self, request, uid, token, format=None):
+    def get(self, request, uid, token):
+        """ Activation url after register new user. """
         payload = {'uid': uid, 'token': token}
 
         url = "http://localhost:8000/api/auth/users/activation/"

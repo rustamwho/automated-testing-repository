@@ -19,3 +19,9 @@ python manage.py create superuser
 python manage.py runserver   
 ```
 4) Server started at localhost with 8000 port and all the api endpoints are ready to connection.
+
+**API specification** at (http://127.0.0.1:8000 +):
+- JSON view at /swagger.json
+- YAML view at /swagger.yaml
+- swagger-ui view at /swagger/
+- ReDoc view at /redoc/

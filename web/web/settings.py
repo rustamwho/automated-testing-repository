@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
 
+    'drf_yasg',
+
     'users',
 ]
 
@@ -122,4 +124,5 @@ DJOSER = {
     'HIDE_USERS': True,
     'SEND_ACTIVATION_EMAIL': True,
     'SEND_CONFIRMATION_EMAIL': True,
+
 }
