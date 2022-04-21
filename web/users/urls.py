@@ -5,7 +5,7 @@ from .views import ActivateUser
 app_name = 'users'
 
 urlpatterns = [
-    path('api/auth/', include('djoser.urls')),
-    path('api/auth/', include('djoser.urls.authtoken')),
+    path('', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
     path('activate-account/<str:uid>/<str:token>', ActivateUser.as_view()),
 ]
