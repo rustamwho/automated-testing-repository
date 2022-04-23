@@ -10,7 +10,7 @@ class ActivateUser(GenericAPIView):
         """ Activation url after register new user. """
         payload = {'uid': uid, 'token': token}
 
-        url = "http://localhost:8000/api/auth/users/activation/"
+        url = "http://localhost:8000/users/activation/"
         response = requests.post(url, data=payload)
 
         if response.status_code == 204:
