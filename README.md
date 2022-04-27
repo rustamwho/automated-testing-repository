@@ -3,7 +3,7 @@
 # Run locally
 
 ## Web
-### Development with default SQLite database
+#### Development with default SQLite database
 1) Install requirements from web/requirements.txt
 2) Create .env file from .env_example in web directory with your smtp parameters (for sending activation email)
 3) In command line from directory web:
@@ -25,3 +25,11 @@ python manage.py runserver
 - YAML view at /swagger.yaml
 - swagger-ui view at /swagger/
 - ReDoc view at /redoc/
+
+## Dynamic tests
+#### Development
+1) Install requirements from dynamic_tests/app/requirements.txt
+2) Run app.py
+
+- Create test_cases for each solution in [test_cases.py](dynamic_tests/app/test_cases.py)
+- Add solution file names and their test cases to dict in [tests.py](dynamic_tests/app/tests.py)
