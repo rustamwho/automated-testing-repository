@@ -24,8 +24,8 @@ def get_score(percentage):
     return result
 
 
-@app.route('/do-tests/', methods=['GET'])
-@app.route('/do-tests', methods=['GET'])
+@app.route('/do-dynamic-tests/', methods=['GET'])
+@app.route('/do-dynamic-tests', methods=['GET'])
 def add_message():
     data = request.get_json()
 

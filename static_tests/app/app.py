@@ -10,8 +10,8 @@ logger = logger_utils.setup_applevel_logger()
 app = Flask(__name__)
 
 
-@app.route('/do-tests/', methods=['GET'])
-@app.route('/do-tests', methods=['GET'])
+@app.route('/do-static-tests/', methods=['GET'])
+@app.route('/do-static-tests', methods=['GET'])
 def add_message():
     data = request.get_json()
 

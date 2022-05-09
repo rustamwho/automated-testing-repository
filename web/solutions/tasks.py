@@ -102,7 +102,7 @@ def dynamic_testing(self, github_url: str, solution_id: int):
     try:
         payload = {'github_url': github_url}
         # Run dynamic testing
-        response = requests.get('http://dynamic-tests:6000/do-tests',
+        response = requests.get('http://dynamic-tests:6000/do-dynamic-tests',
                                 json=payload,
                                 timeout=360)
         response = response.json()
