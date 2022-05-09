@@ -1,7 +1,6 @@
 import logger_utils
 
 from flask import Flask, request, jsonify, Response
-from flask_restful import Api
 
 from check_solution import SolutionTests
 
@@ -9,7 +8,6 @@ from check_solution import SolutionTests
 logger = logger_utils.setup_applevel_logger()
 
 app = Flask(__name__)
-api = Api(app)
 
 
 def get_score(percentage):
@@ -66,4 +64,3 @@ def add_message():
 
 if __name__ == '__main__':
     app.run(port=6000, debug=True)
-    logger.info('i am started')
