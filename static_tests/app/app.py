@@ -30,7 +30,10 @@ def add_message():
     logger.info(f'New url: {url}')
 
     solution = SolutionTests(url)
-    result = solution.run_tests()
+    try:
+        result = solution.run_tests()
+    except Exception:
+        return jsonify({'github_url': url, 'result': 'error', })
 
     if isinstance(result, bool):
         return jsonify({
@@ -48,4 +51,4 @@ def add_message():
 
 
 if __name__ == '__main__':
-    app.run(port=7000, debug=True)
+    app.run(port=6001, debug=True)

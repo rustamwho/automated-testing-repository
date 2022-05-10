@@ -44,7 +44,11 @@ def add_message():
     logger.info(f'New url: {url}')
 
     solution = SolutionTests(url)
-    result, access_time = solution.run_tests()
+    try:
+        result, access_time = solution.run_tests()
+    except Exception:
+        return jsonify({'github_url': url,
+                        'result': 'error', })
 
     if isinstance(result, bool) or isinstance(access_time, bool):
         return jsonify({
