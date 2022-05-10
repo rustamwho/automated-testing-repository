@@ -59,6 +59,7 @@ class SolutionTests:
             lo_module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(lo_module)
             try:
+                logger.info(f'Начало проверки с файлом {lo_file}')
                 lo = lo_module.get_learning_outcome(self.file_list)
                 learning_outcomes.append(lo)
             except AttributeError:
