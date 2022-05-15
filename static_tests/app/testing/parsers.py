@@ -163,3 +163,70 @@ def is_exists_creating_str(file_name: str) -> bool:
         if match:
             return True
     return False
+
+
+def is_exists_print_with_param(file_name: str, param: str) -> bool:
+    """
+    Search printing with <param> 'end' or 'sep'.
+
+    :param file_name: str of the file for matching
+    :param param: param in print(). end or sep.
+    :return: True if printing with param is exists, else - False
+    """
+    pattern = fr'^[^#\'\"\n]*print\([^)]*\s*{param} ?= ?.+\)$'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_print_f_str(file_name: str) -> bool:
+    """
+    Search printing f-strings.
+
+    :param file_name: str of the file for matching
+    :return: True if printing f-string is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*print\(f[\'\"]+.+\)$'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_print_line_break(file_name: str) -> bool:
+    """
+    Search printing string with \\\\n.
+
+    :param file_name: str of the file for matching
+    :return: True if printing string with \\n is exists, else - False
+    """
+    # ^[^#\'\"\n]*print\(.* - строка начинается с print(и любого символа
+    # [\'\"]{1}.*\\n.*[\'\"]{1} - открывающая кавычка, \n, закрывающая кавычка
+    # .*\)$ - любые символы 0 или более, скобки зыкрываются
+    pattern = r'^[^#\'\"\n]*print\(.*[\'\"]{1}.*\\n.*[\'\"]{1}.*\)$'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_input_with_prompt(file_name: str) -> bool:
+    """
+    Search input() with prompt - input(prompt).
+
+    :param file_name: str of the file for matching
+    :return: True if input with prompt is exists, else - False
+    """
+    # ^[^#\'\"\n]*\w+ - строка начинается с переменной
+    #  ?= ? - знак равно с двух сторон пробелы либо есть, либо нет
+    # input\([\'\"]\w+.*[\'\"]\) - input(), внутри в кавычках строка
+    pattern = r'^[^#\'\"\n]*\w+ ?= ?input\([\'\"]\w+.*[\'\"]\)'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
