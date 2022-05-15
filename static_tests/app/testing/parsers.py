@@ -92,7 +92,7 @@ def is_using_method(file_name: str, method_name: str) -> bool:
 
 def is_exist_slices(file_name: str) -> bool:
     """
-    Search using string slices.
+    Search using string/list slices.
 
     :param file_name:str of the file for matching
     :return:True if slices are exist, else - False
@@ -120,12 +120,12 @@ def is_exists_str_iteration(file_name: str) -> bool:
     return False
 
 
-def is_exists_str_indexation(file_name: str) -> bool:
+def is_exists_indexing(file_name: str) -> bool:
     """
-    Search using string indexation.
+    Search using string/list indexing.
 
     :param file_name: str of the file for matching
-    :return: True if using string indexation is exists, else - False
+    :return: True if using string indexing is exists, else - False
     """
     pattern = fr'^[^#\'\"\n]*(\w+\[\d+]).*$'
     with open(file_name, 'r') as file:
@@ -135,7 +135,7 @@ def is_exists_str_indexation(file_name: str) -> bool:
     return False
 
 
-def is_exists_str_length(file_name: str) -> bool:
+def is_exists_getting_length(file_name: str) -> bool:
     """
     Search using len().
 
@@ -228,5 +228,120 @@ def is_exists_input_with_prompt(file_name: str) -> bool:
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
+            return True
+    return False
+
+
+def is_exists_iteration_through_nested_list(file_name: str) -> bool:
+    """
+    Search iteration through a nested list.
+
+    :param file_name: str of the file for matching
+    :return: True if iteration is exists, else - False
+    """
+    # for (?P<element1>\b\w+) in \w+: - итерация по объекту (for el1 in list:)
+    # for \w+ in (?P=element1) - итерация по вложенному объекту с именем
+    # (for el2 in el1)
+    pattern1 = (r'^[^#\'\"\n]*for (?P<element1>\b\w+) in \w+: '
+                r'for \w+ in (?P=element1)')
+    pattern2 = (r'^[^#\'\"\n]*for \w+ in range\(\w+\):\s*'
+                r'for \w+ in range\(\w+\):')
+    with open(file_name, 'r') as file:
+        f = file.read()
+        match1 = re.findall(pattern1, f, flags=re.MULTILINE)
+        match2 = re.findall(pattern2, f, flags=re.MULTILINE)
+        if match1 or match2:
+            return True
+    return False
+
+
+def is_exists_indexing_nested_list(file_name: str) -> bool:
+    """
+    Search indexing nested list. list1[1][2].
+
+    :param file_name: str of the file for matching
+    :return: True if indexing is exists, else - False
+    """
+    # \w+\[\d+\]\[\d+\] - переменная[позиция][позиция]
+    pattern = r'^[^#\'\"\n]*\w+\[\d+\]\[\d+\]'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_creating_nested_list(file_name: str) -> bool:
+    """
+    Search creating nested list. list1 = [[]] or with iteration.
+
+    :param file_name: str of the file for matching
+    :return: True if creating nested list is exists, else - False
+    """
+    # matrix = [[]]
+    pattern1 = r'^[^#\'\"\n]*\w+ ?= ?\[.*\[.*\].*\]'
+    # for i in range(n):
+    #     matrix.append([])
+    #     for j in range(m):
+    #         matrix[i].append(counter)
+    pattern2 = (r'^[^#\'\"\n]*for (?P<element1>\b\w+) in range\(\w+\):\s*'
+                r'(?P<matrix>\b\w+).append\(\[\]\)\s*'
+                r'for \w+ in range\(\w+\):\s*'
+                r'(?P=matrix)\[(?P=element1)\].append\(\w+\)')
+    with open(file_name, 'r') as file:
+        f = file.read()
+        match1 = re.findall(pattern1, f, flags=re.MULTILINE)
+        match2 = re.findall(pattern2, f, flags=re.MULTILINE)
+        if match1 or match2:
+            return True
+    return False
+
+
+def is_exists_list_expression(file_name: str) -> bool:
+    """
+    Search list expressions. for i in list.
+
+    :param file_name: str of the file for matching
+    :return: True if list expression is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*for \w+ in \w+'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_del_list(file_name: str) -> bool:
+    """
+    Search for deleting a list item. del list1[1]
+
+    :param file_name: str of the file for matching
+    :return: True if list item deleting is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*del \w+\[\w+\]'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_creating_list(file_name: str) -> bool:
+    """
+    Search creating list.
+
+    :param file_name: str of the file for matching
+    :return: True if list creating is exists, else - False
+    """
+    # list1 = [] or list1 = [<any_symbols>]
+    pattern1 = r'^[^#\'\"\n]*\w+ ?= ?\[.*\]$'
+    # list1 = var.split() or list1 = input().split()
+    pattern2 = r'^[^#\'\"\n]*\w+ ?= ?[\w()]+.split\(.*\)$'
+    with open(file_name, 'r') as file:
+        f = file.read()
+        match1 = re.findall(pattern1, f, flags=re.MULTILINE)
+        match2 = re.findall(pattern2, f, flags=re.MULTILINE)
+        if match1 or match2:
             return True
     return False
