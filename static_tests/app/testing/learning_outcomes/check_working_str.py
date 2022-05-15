@@ -52,16 +52,14 @@ def three(file_list: list):
                 task='Модуль 4. Задача 1.'
             )
         )
-    if not search_with_func(file_list,
-                            func=parsers.is_exists_str_indexation):
+    if not search_with_func(file_list, func=parsers.is_exists_indexing):
         recommendations.append(
             Recommendation(
                 name='Использует индексацию',
                 task='Модуль 4. Задача 1.'
             )
         )
-    if not search_with_func(file_list,
-                            func=parsers.is_exists_str_length):
+    if not search_with_func(file_list, func=parsers.is_exists_getting_length):
         recommendations.append(
             Recommendation(
                 name='Умеет узнавать длину строки',
