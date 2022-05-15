@@ -80,7 +80,7 @@ def is_using_method(file_name: str, method_name: str) -> bool:
 
     :param file_name: str of the file for matching
     :param method_name: name of the method to search
-    :return:True if <method_name> method is using, else - False
+    :return: True if <method_name> method is using, else - False
     """
     pattern = fr'^[^#\'\"\n]*\w+.{method_name}\(.+\).*$'
     with open(file_name, 'r') as file:
@@ -338,6 +338,40 @@ def is_exists_creating_list(file_name: str) -> bool:
     pattern1 = r'^[^#\'\"\n]*\w+ ?= ?\[.*\]$'
     # list1 = var.split() or list1 = input().split()
     pattern2 = r'^[^#\'\"\n]*\w+ ?= ?[\w()]+.split\(.*\)$'
+    with open(file_name, 'r') as file:
+        f = file.read()
+        match1 = re.findall(pattern1, f, flags=re.MULTILINE)
+        match2 = re.findall(pattern2, f, flags=re.MULTILINE)
+        if match1 or match2:
+            return True
+    return False
+
+
+def is_exists_generator_of_sets(file_name: str) -> bool:
+    """
+    Search generator of sets. {c for c in iterable_object}.
+
+    :param file_name: str of the file for matching
+    :return: True if generator of sets is exists, else - False
+    """
+    pattern = (r'^[^#\'\"\n]*\w+ ?= ?\{(?P<element>\b\w+) '
+               r'for (?P=element) in \w+}')
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_creating_set(file_name: str) -> bool:
+    """
+    Search creating set. set() or set(<iterable_object>) or {}.
+
+    :param file_name: str of the file for matching
+    :return: True if creating set is exists, else - False
+    """
+    pattern1 = r'^[^#\'\"\n]*set\(\w*\)'
+    pattern2 = r'^[^#\'\"\n]*\{.*\}'
     with open(file_name, 'r') as file:
         f = file.read()
         match1 = re.findall(pattern1, f, flags=re.MULTILINE)
