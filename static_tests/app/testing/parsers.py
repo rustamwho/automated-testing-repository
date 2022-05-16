@@ -1,6 +1,22 @@
 import re
 
 
+def is_exists_pattern(file_name: str, pattern: str) -> bool:
+    """
+    Search only pattern in file.
+
+    :param file_name: str of the file for matching
+    :param pattern: pattern for searching
+    :return: True if pattern is exists, else - False
+    """
+    pattern = fr'{pattern}'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
 def is_exists_overload_arithmetic(file_name: str, operator: str) -> bool:
     """
     Search overloading arithmetic operators.
@@ -19,18 +35,33 @@ def is_exists_overload_arithmetic(file_name: str, operator: str) -> bool:
     return False
 
 
-def is_exists_pattern(file_name: str, pattern: str) -> bool:
+def is_exists_arithmetic_operator(file_name: str, operator: str) -> bool:
     """
-    Search pattern in file.
-    Final pattern for matching: fr'^\s*\w+\s*\{pattern}\s*\w+'.
+    Search using arithmetic operator in file.
+    Final pattern for matching: fr'^.+ ?\{operator} ?.+'
 
     :param file_name: str of the file for matching
-    :param pattern: pattern for searching
+    :param operator: operator for searching
     :return: True if pattern is exists in file, else - False
     """
-    # ^\s* - строка начинается с 0 или более пробелов
-    # \w+ - любой символ, котороый может быть переменной (буквы, цифры и _)
-    pattern = fr'^\s*\w+\s*\{pattern}\s*\w+'
+    pattern = fr'^.+ ?\{operator} ?.+'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_logic_operator(file_name: str, operator: str) -> bool:
+    """
+    Search using logical operator in file.
+    Final pattern for matching: fr'^.+ ?{operator} ?.+'.
+
+    :param file_name: str of the file for matching
+    :param operator: operator for searching
+    :return: True if pattern is exists in file, else - False
+    """
+    pattern = fr'^.+ ?{operator} ?.+'
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
@@ -377,5 +408,35 @@ def is_exists_creating_set(file_name: str) -> bool:
         match1 = re.findall(pattern1, f, flags=re.MULTILINE)
         match2 = re.findall(pattern2, f, flags=re.MULTILINE)
         if match1 or match2:
+            return True
+    return False
+
+
+def is_exists_nested_loop(file_name: str) -> bool:
+    """
+    Search nested loops. for ... :\\\\n for ... :
+
+    :param file_name: str of the file for matching
+    :return: True if nested loop is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*(for .+:)\s+(for .+:)\s*'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_for_range(file_name: str) -> bool:
+    """
+    Search using for operator with range. for ... in range().
+
+    :param file_name: str of the file for matching
+    :return: True if pattern is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*for \w+ in range\(\w+\)'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
             return True
     return False
