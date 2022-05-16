@@ -1,6 +1,8 @@
 import re
 
 
+# TODO: добавить удаление docstring перед проверкой
+
 def is_exists_pattern(file_name: str, pattern: str) -> bool:
     """
     Search only pattern in file.
@@ -113,7 +115,7 @@ def is_using_method(file_name: str, method_name: str) -> bool:
     :param method_name: name of the method to search
     :return: True if <method_name> method is using, else - False
     """
-    pattern = fr'^[^#\'\"\n]*\w+.{method_name}\(.+\).*$'
+    pattern = fr'^[^#\'\"\n]*\w+.{method_name}\(.*\).*$'
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
@@ -435,6 +437,64 @@ def is_exists_for_range(file_name: str) -> bool:
     :return: True if pattern is exists, else - False
     """
     pattern = r'^[^#\'\"\n]*for \w+ in range\(\w+\)'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_regex_matching(file_name: str) -> bool:
+    """
+    Search using regex searching. .search() or .findall() or .match()
+    or .fullmatch() or .finditer().
+
+    :param file_name: str of the file for matching
+    :return: True if matching with regex is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*.(search|findall|match|fullmatch|finditer)\(.+\)'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_multiple_regex(file_name: str) -> bool:
+    """
+    Search using multiple special regex characters.
+
+    :param file_name: str of the file for matching
+    :return: True if pattern is exists, else - False
+    """
+    # ^[^#\n]* - строка не закомментирована
+    # [\'\"]{1} - кавычки открываются
+    # [^\'\"]* - любые символы кроме этих
+    # (?:\\d|\\D|\\w|\\W|\\s|\\S|\\b|\\B) - комбинация из двух выражений
+    # (между ними нет закрывающей кавычки)
+    pattern = (r'^[^#\n]*[\'\"]{1}[^\'\"]*'
+               r'(?:\\d|\\D|\\w|\\W|\\s|\\S|\\b|\\B)[^\'\"n]*'
+               r'(?:\\d|\\D|\\w|\\W|\\s|\\S|\\b|\\B)')
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_regex_character(file_name: str) -> bool:
+    """
+    Search using special regex characters.
+
+    :param file_name: str of the file for matching
+    :return: True if pattern is exists, else - False
+    """
+    # ^[^#\n]* - строка не закомментирована
+    # [\'\"]{1} - кавычки открываются
+    # [^\'\"]* - любые символы кроме этих
+    # (\\d|\\D|\\w|\\W|\\s|\\S|\\b|\\B) - одно из этих шаблонов
+    pattern = (r'^[^#\n]*[\'\"]{1}[^\'\"]*'
+               r'(\\d|\\D|\\w|\\W|\\s|\\S|\\b|\\B)')
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
