@@ -530,3 +530,58 @@ def is_exists_import_from(file_name: str) -> bool:
         if match:
             return True
     return False
+
+
+def is_exists_multiple_inheritance(file_name: str) -> bool:
+    """
+    Search using multiple inheritance. [class Cat(Base1, Base2):]
+
+    :param file_name: str of the file for matching
+    :return: True if multiple inheritance is exists, else - False
+    """
+    # ^[^#\'\"\n]*class \w+ ?\(\) - объявляется класс
+    # (\w+,? ?){2,} - есть два или более родительских класса
+    pattern = r'^[^#\'\"\n]*class \w+ ?\((\w+,? ?){2,}\)'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_super_function(file_name: str) -> bool:
+    """
+    Search using super() function. [ super().__init__() ]
+
+    :param file_name: str of the file for matching
+    :return: True if super() function is exists, else - False
+    """
+    # super\(\w*\). - super(<есть или нет переменной>).
+    # \w+\( - название метода и открывающая скобка
+    pattern = r'^[^#\'\"\n]*super\(\w*\).\w+\('
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_getter_setters(file_name: str) -> bool:
+    """
+    Search using getters and setters. @property - getter.
+    @var_name.setter - setter.
+
+    :param file_name: str of the file for matching
+    :return: True if getter and setter are exist, else - False
+    """
+    # @property\s+def (?P<var_name>\b\w+)\(.+\): - объявление геттера
+    # @(?P=var_name).setter - объявление сеттера этой же переменной
+    pattern = (r'^[^#\'\"\n]*@property\s+def (?P<var_name>\b\w+)\(.+\):.+'
+               r'@(?P=var_name).setter')
+    with open(file_name, 'r') as file:
+        # DOTALL - чтобы точка в паттерне была и переносом строки
+        match = re.findall(pattern, file.read(),
+                           flags=re.MULTILINE | re.DOTALL)
+        if match:
+            return True
+    return False
