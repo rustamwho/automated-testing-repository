@@ -500,3 +500,33 @@ def is_exists_regex_character(file_name: str) -> bool:
         if match:
             return True
     return False
+
+
+def is_exists_import_alias(file_name: str) -> bool:
+    """
+    Search using imports with alias. [import ... as ...].
+
+    :param file_name: str of the file for matching
+    :return: True if import with alias is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*import \w+ as \w+$'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
+
+
+def is_exists_import_from(file_name: str) -> bool:
+    """
+    Search using imports with from. [from ... import ...].
+
+    :param file_name: str of the file for matching
+    :return: True if import with from is exists, else - False
+    """
+    pattern = r'^[^#\'\"\n]*from \w+ import \w+.*$'
+    with open(file_name, 'r') as file:
+        match = re.findall(pattern, file.read(), flags=re.MULTILINE)
+        if match:
+            return True
+    return False
