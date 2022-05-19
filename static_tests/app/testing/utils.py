@@ -1,6 +1,7 @@
 import re
 
 import cdmpyparser
+from radon.metrics import mi_visit
 
 
 def get_module_info(file) -> cdmpyparser.BriefModuleInfo:
@@ -118,3 +119,16 @@ def is_using_methods(file_list: list) -> bool:
         if [meth for cls in module_info.classes for meth in cls.functions]:
             return True
     return False
+
+
+def get_maintainability_indexes(file_list: list) -> list:
+    """
+    Calculate maintainability index for each file and return list of them.
+    """
+    maintainability_indexes = []
+    for file_name in file_list:
+        with open(file_name, 'r') as file:
+            code = file.read()
+            mi = mi_visit(code, multi=True)
+            maintainability_indexes.append(mi)
+    return maintainability_indexes
