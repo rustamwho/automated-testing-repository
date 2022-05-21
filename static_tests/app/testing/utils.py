@@ -1,7 +1,10 @@
+from io import StringIO
 import re
 
 import cdmpyparser
 from radon.metrics import mi_visit
+from pylint.lint import Run
+from pylint.reporters.text import TextReporter
 
 
 def get_module_info(file) -> cdmpyparser.BriefModuleInfo:
@@ -132,3 +135,34 @@ def get_maintainability_indexes(file_list: list) -> list:
             mi = mi_visit(code, multi=True)
             maintainability_indexes.append(mi)
     return maintainability_indexes
+
+
+def get_count_duplicates_conventions(file_list: list) -> tuple[int, int]:
+    """
+    Return detected duplicated code fragments and count of code style
+    violations.
+
+    :param file_list: files to checking.
+    :return: duplicates_count, conventions_count
+    """
+    pylint_output = StringIO()
+    reporter = TextReporter(pylint_output)
+
+    # Prepare args with files and params for pylint
+    args = [file for file in file_list]
+    args.append('--disable=all')
+    # Enable Convention category to detecting
+    args.append('--enable=С')
+    # Enable detecting duplicates
+    args.append('--enable=R0801')
+    # Disable unnecessary messages
+    args.append('--disable=C0103,C2001,C1901,C0209')
+
+    Run(args, reporter=reporter, do_exit=False)
+
+    pattern = r'\bR0801'
+    duplicates_count = len(re.findall(pattern, pylint_output.getvalue()))
+    pattern = r'(module_\d+/task_\w+.py):\d+:\d+: C\d+:'
+    conventions_count = len(set(re.findall(pattern, pylint_output.getvalue())))
+
+    return duplicates_count, conventions_count
