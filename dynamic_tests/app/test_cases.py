@@ -58,6 +58,20 @@ TEST_CASE_module_4_task_2 = {
     'ааггццттААГГЦЦТТ': ('Аденин: 4', 'Гуанин: 4', 'Цитозин: 4', 'Тимин: 4'),
 }
 
+TEST_CASE_module_4_task_3 = {
+    'abcdefg': 5,
+    'abcdefgfhfabc': '5 9',
+    'abcd': 'NO',
+    'comfort': 3,
+    'office': '1 2',
+    'hello': 'NO',
+    'fffffffffffffff': '0 14',
+    'aaaaaaaaaaaaaaaaaaaaafaaaaaaaaaaaaaaaaaaaaaaaa': 21,
+    'aaaaaaaaaaaaaaaaaaaaaaaaffaaaaaaaaaaaaaaaaaaaa': '24 25',
+    'afafafafafafafa': '1 13',
+}
+
+
 TEST_CASE_module_7_task_5 = {
     (114, 223): 'NO',
     (1523, 3678): 'YES',

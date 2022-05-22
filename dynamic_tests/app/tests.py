@@ -16,6 +16,7 @@ TEST_FILE_TEST_CASE = {
     'module_3/task_1_basic_operations.py': tc.TEST_CASE_module_3_task_1,
     'module_4/task_1_cezar.py': tc.TEST_CASE_module_4_task_1,
     'module_4/task_2_genetics.py': tc.TEST_CASE_module_4_task_2,
+    'module_4/task_3_first_last_occurrence.py': tc.TEST_CASE_module_4_task_3,
 }
 
 
