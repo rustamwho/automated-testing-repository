@@ -88,6 +88,23 @@ TEST_CASE_module_6_task_2 = {
     '5 2': ('1  2', '3  4', '5  6', '7  8', '9  10')
 }
 
+TEST_CASE_module_6_task_3 = {
+    ('5', 'Язык Python прекрасен', 'C# - отличный язык программирования',
+     'Stepik - отличная платформа', 'BEEGEEK FOREVER!',
+     'язык Python появился 20 февраля 1991', '2', 'язык', 'python'): (
+        'Язык Python прекрасен', 'язык Python появился 20 февраля 1991'),
+    ('6', 'A caelo usque ad BEEGEEK centrum', 'A capillo usque ad ungues',
+     'A capite ad calcem beegeek', 'Ab absurdo beegeeK',
+     'Ab BEEGEEK equis ad asinos', 'Ab hoedis scindere oves', '1',
+     'Beegeek'): (
+        'A caelo usque ad BEEGEEK centrum', 'A capite ad calcem beegeek',
+        'Ab absurdo beegeeK', 'Ab BEEGEEK equis ad asinos'),
+    ('5', 'Язык Python прекрасен', 'C# - отличный язык программирования',
+     'Stepik - отличная платформа', 'BEEGEEK FOREVER!',
+     'язык Python появился 20 февраля 1991', '3', 'язык', 'python',
+     'прекрасен'): 'Язык Python прекрасен'
+}
+
 TEST_CASE_module_7_task_5 = {
     (114, 223): 'NO',
     (1523, 3678): 'YES',
