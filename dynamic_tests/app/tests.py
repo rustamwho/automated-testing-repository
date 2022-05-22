@@ -18,6 +18,7 @@ TEST_FILE_TEST_CASE = {
     'module_4/task_2_genetics.py': tc.TEST_CASE_module_4_task_2,
     'module_4/task_3_first_last_occurrence.py': tc.TEST_CASE_module_4_task_3,
     'module_6/task_1_dict_methods.py': tc.TEST_CASE_module_6_task_1,
+    'module_6/task_2_matrix.py': tc.TEST_CASE_module_6_task_2,
 }
 
 
