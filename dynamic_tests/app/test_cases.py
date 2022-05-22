@@ -71,6 +71,10 @@ TEST_CASE_module_4_task_3 = {
     'afafafafafafafa': '1 13',
 }
 
+TEST_CASE_module_6_task_1 = {
+    10: 'палатка брезент удочка брюки пила карандаш спички'
+}
+
 
 TEST_CASE_module_7_task_5 = {
     (114, 223): 'NO',
