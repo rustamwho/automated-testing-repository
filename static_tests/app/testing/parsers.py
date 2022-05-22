@@ -115,7 +115,7 @@ def is_using_method(file_name: str, method_name: str) -> bool:
     :param method_name: name of the method to search
     :return: True if <method_name> method is using, else - False
     """
-    pattern = fr'^[^#\'\"\n]*\w+.{method_name}\(.*\).*$'
+    pattern = fr'^[^#\'\"\n]*[\w)]+.{method_name}\(.*\).*$'
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
@@ -130,7 +130,7 @@ def is_exist_slices(file_name: str) -> bool:
     :param file_name:str of the file for matching
     :return:True if slices are exist, else - False
     """
-    pattern = fr'^[^#\'\"\n]*\w+\[\d*:\d*].*$'
+    pattern = fr'^[^#\'\"\n]*\w+\[[\d\w]*:[\d\w]*\].*$'
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
@@ -206,7 +206,7 @@ def is_exists_print_with_param(file_name: str, param: str) -> bool:
     :param param: param in print(). end or sep.
     :return: True if printing with param is exists, else - False
     """
-    pattern = fr'^[^#\'\"\n]*print\([^)]*\s*{param} ?= ?.+\)$'
+    pattern = fr'^[^#\n]*print\(.*{param} ?= ?.+\)$'
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
@@ -257,7 +257,7 @@ def is_exists_input_with_prompt(file_name: str) -> bool:
     # ^[^#\'\"\n]*\w+ - строка начинается с переменной
     #  ?= ? - знак равно с двух сторон пробелы либо есть, либо нет
     # input\([\'\"]\w+.*[\'\"]\) - input(), внутри в кавычках строка
-    pattern = r'^[^#\'\"\n]*\w+ ?= ?input\([\'\"]\w+.*[\'\"]\)'
+    pattern = r'^[^#\'\"\n]*input\([\'\"]\w+.*[\'\"]\)'
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
