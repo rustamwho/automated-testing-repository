@@ -21,6 +21,7 @@ TEST_FILE_TEST_CASE = {
     'module_6/task_2_matrix.py': tc.TEST_CASE_module_6_task_2,
     'module_6/task_3_google_search.py': tc.TEST_CASE_module_6_task_3,
     'module_6/task_4_chunking.py': tc.TEST_CASE_module_6_task_4,
+    'module_6/task_5_lists.py': tc.TEST_CASE_module_6_task_5,
 }
 
 
