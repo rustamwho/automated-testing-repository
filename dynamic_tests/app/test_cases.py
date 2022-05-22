@@ -105,6 +105,12 @@ TEST_CASE_module_6_task_3 = {
      'прекрасен'): 'Язык Python прекрасен'
 }
 
+TEST_CASE_module_6_task_4 = {
+    ('a b c d e f', '2'): "[['a', 'b'], ['c', 'd'], ['e', 'f']]",
+    ('a b c d e f', '3'): "[['a', 'b', 'c'], ['d', 'e', 'f']]",
+    ('a b c', '1'): "[['a'], ['b'], ['c']]",
+}
+
 TEST_CASE_module_7_task_5 = {
     (114, 223): 'NO',
     (1523, 3678): 'YES',
