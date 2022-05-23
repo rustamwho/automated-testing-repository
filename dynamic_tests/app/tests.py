@@ -25,6 +25,7 @@ TEST_FILE_TEST_CASE = {
     'module_7/task_1_unique_cities.py': tc.TEST_CASE_module_7_task_1,
     'module_7/task_2_number_of_matching.py': tc.TEST_CASE_module_7_task_2,
     'module_7/task_3_set_generator.py': tc.TEST_CASE_module_7_task_3,
+    'module_7/task_4_shared_numbers.py': tc.TEST_CASE_module_7_task_4,
 }
 
 
@@ -38,7 +39,7 @@ def testing(solutions_dir: str) -> tuple[int, int, int]:
     accepted_solutions = 0
     timeout_count = 0
     for solution_file, test_cases in TEST_FILE_TEST_CASE.items():
-        _solution_file = os.path.join(solutions_dir,solution_file)
+        _solution_file = os.path.join(solutions_dir, solution_file)
         if not os.path.exists(_solution_file):
             continue
 
