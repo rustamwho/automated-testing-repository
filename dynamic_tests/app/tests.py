@@ -26,6 +26,7 @@ TEST_FILE_TEST_CASE = {
     'module_7/task_2_number_of_matching.py': tc.TEST_CASE_module_7_task_2,
     'module_7/task_3_set_generator.py': tc.TEST_CASE_module_7_task_3,
     'module_7/task_4_shared_numbers.py': tc.TEST_CASE_module_7_task_4,
+    'module_7/task_5_identical_numbers.py': tc.TEST_CASE_module_7_task_5,
 }
 
 
