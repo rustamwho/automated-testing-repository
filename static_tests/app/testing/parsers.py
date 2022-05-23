@@ -387,8 +387,8 @@ def is_exists_generator_of_sets(file_name: str) -> bool:
     :param file_name: str of the file for matching
     :return: True if generator of sets is exists, else - False
     """
-    pattern = (r'^[^#\'\"\n]*\w+ ?= ?\{(?P<element>\b\w+) '
-               r'for (?P=element) in \w+}')
+    pattern = (r'^[^#\'\"\n]*\{.*(?P<element>\b\w+).*'
+               r'for (?P=element) in \w+\}')
     with open(file_name, 'r') as file:
         match = re.findall(pattern, file.read(), flags=re.MULTILINE)
         if match:
