@@ -24,6 +24,7 @@ TEST_FILE_TEST_CASE = {
     'module_6/task_5_lists.py': tc.TEST_CASE_module_6_task_5,
     'module_7/task_1_unique_cities.py': tc.TEST_CASE_module_7_task_1,
     'module_7/task_2_number_of_matching.py': tc.TEST_CASE_module_7_task_2,
+    'module_7/task_3_set_generator.py': tc.TEST_CASE_module_7_task_3,
 }
 
 

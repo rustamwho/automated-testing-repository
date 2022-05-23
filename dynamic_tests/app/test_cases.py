@@ -133,6 +133,10 @@ TEST_CASE_module_7_task_2 = {
      '12 13 14 15 16 17 1 2 3 999 90 76 34'): 93,
 }
 
+TEST_CASE_module_7_task_3 = {
+    '': '1 5 6 10 12 23 30 34 45 56 67 89',
+}
+
 TEST_CASE_module_7_task_5 = {
     (114, 223): 'NO',
     (1523, 3678): 'YES',
