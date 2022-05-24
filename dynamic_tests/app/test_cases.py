@@ -159,3 +159,8 @@ TEST_CASE_module_8_task_1 = {
     ('this is a text', '''"this' !is. ?n1ce,'''): ('htis si a etxt',
                                                    '''"htis' !si. ?1nce,''')
 }
+
+TEST_CASE_module_8_task_2 = {
+    ('cat', 'catapult and cat', 'catcat', 'concat', 'Cat', '"cat"', '!cat?'): (
+        'cat', 'catapult and cat', '"cat"', '!cat?')
+}
