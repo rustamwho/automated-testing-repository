@@ -154,3 +154,8 @@ TEST_CASE_module_7_task_5 = {
     (1234, 5678): 'NO',
     (9754, 123): 'NO',
 }
+
+TEST_CASE_module_8_task_1 = {
+    ('this is a text', '''"this' !is. ?n1ce,'''): ('htis si a etxt',
+                                                   '''"htis' !si. ?1nce,''')
+}

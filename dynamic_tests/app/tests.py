@@ -27,6 +27,7 @@ TEST_FILE_TEST_CASE = {
     'module_7/task_3_set_generator.py': tc.TEST_CASE_module_7_task_3,
     'module_7/task_4_shared_numbers.py': tc.TEST_CASE_module_7_task_4,
     'module_7/task_5_identical_numbers.py': tc.TEST_CASE_module_7_task_5,
+    'module_8/task_1_change_letters.py': tc.TEST_CASE_module_8_task_1,
 }
 
 
