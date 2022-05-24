@@ -6,7 +6,8 @@ import os
 import logger_utils
 
 import test_cases as tc
-from utils import auto_tests, TestResult
+import testers_with_import as twi
+from tester_with_running import auto_tests, TestResult
 
 logger = logger_utils.get_logger(__name__)
 
@@ -29,6 +30,10 @@ TEST_FILE_TEST_CASE = {
     'module_7/task_5_identical_numbers.py': tc.TEST_CASE_module_7_task_5,
     'module_8/task_1_change_letters.py': tc.TEST_CASE_module_8_task_1,
     'module_8/task_2_cat.py': tc.TEST_CASE_module_8_task_2,
+}
+
+TEST_FILE_RUNNING_TEST = {
+    'module_10/task_1_mean_function.py': twi.testing_module_10_task_1,
 }
 
 
@@ -61,4 +66,22 @@ def testing(solutions_dir: str) -> tuple[int, int, int]:
                 accepted_solutions += 1
             if any(res.comment == 'TIMEOUT' for res in results):
                 timeout_count += 1
-    return accepted_solutions, len(TEST_FILE_TEST_CASE), timeout_count
+
+    for solution_file, tester in TEST_FILE_RUNNING_TEST.items():
+        _solution_file = os.path.join(solutions_dir, solution_file)
+        if not os.path.exists(_solution_file):
+            continue
+
+        results: list[TestResult] = tester(
+            base_dir=os.path.realpath(solutions_dir))
+
+        logger.info(f'{solution_file} - {results}')
+
+        if results:
+            # If all tester running for solution are accepted
+            if all(res.accepted for res in results):
+                accepted_solutions += 1
+
+    return (accepted_solutions,
+            len(TEST_FILE_TEST_CASE) + len(TEST_FILE_RUNNING_TEST),
+            timeout_count)
