@@ -97,3 +97,54 @@ def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
         results.append(TestResult(3, True, 'ACCESS'))
 
     return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
+    try:
+        from module_10.task_2_filling_matrix import matrix
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    results = []
+    if matrix() != [[0]]:
+        results.append(TestResult(0, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(0, True, 'ACCESS'))
+
+    if matrix(3) != [[0, 0, 0], [0, 0, 0], [0, 0, 0]]:
+        results.append(TestResult(1, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(1, True, 'ACCESS'))
+
+    if matrix(2, 5) != [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]:
+        results.append(TestResult(2, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(2, True, 'ACCESS'))
+
+    if matrix(3, 4, 9) != [[9, 9, 9, 9], [9, 9, 9, 9], [9, 9, 9, 9]]:
+        results.append(TestResult(3, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(3, True, 'ACCESS'))
+
+    return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_10_task_4(base_dir: str) -> list[TestResult]:
+    try:
+        from module_10.task_4_info_kwargs_function import info_kwargs
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    output = info_kwargs(first_name='Timur', last_name='Guev', age=28,
+                         job='teacher')
+    expected = 'age: 28\nfirst_name: Timur\njob: teacher\nlast_name: Guev'
+
+    results = []
+    if output.strip() != expected:
+        results.append(TestResult(0, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(0, True, 'ACCESS'))
+
+    return results
