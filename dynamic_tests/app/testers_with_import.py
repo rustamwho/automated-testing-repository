@@ -50,12 +50,12 @@ def testing_module_10_task_1(base_dir: str) -> list[TestResult]:
     else:
         results.append(TestResult(1, True, 'ACCESS'))
 
-    if mean(1.5, True, ['stepik'], 'beegeek', 2.5, (1, 2)) != 2.0:
+    if mean(1.5, True, ['джфыщкпл'], 'beegeek', 2.5, (1, 2)) != 2.0:
         results.append(TestResult(2, False, 'WRONG ANSWER'))
     else:
         results.append(TestResult(2, True, 'ACCESS'))
 
-    if mean(True, ['stepik'], 'beegeek', (1, 2)) != 0.0:
+    if mean(True, ['stop'], 'beegeek', (1, 2)) != 0.0:
         results.append(TestResult(3, False, 'WRONG ANSWER'))
     else:
         results.append(TestResult(3, True, 'ACCESS'))
@@ -64,5 +64,36 @@ def testing_module_10_task_1(base_dir: str) -> list[TestResult]:
         results.append(TestResult(4, False, 'WRONG ANSWER'))
     else:
         results.append(TestResult(4, True, 'ACCESS'))
+
+    return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
+    try:
+        from module_10.task_2_filling_matrix import matrix
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    results = []
+    if matrix() != [[0]]:
+        results.append(TestResult(0, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(0, True, 'ACCESS'))
+
+    if matrix(3) != [[0, 0, 0], [0, 0, 0], [0, 0, 0]]:
+        results.append(TestResult(1, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(1, True, 'ACCESS'))
+
+    if matrix(2, 5) != [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]:
+        results.append(TestResult(2, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(2, True, 'ACCESS'))
+
+    if matrix(3, 4, 9) != [[9, 9, 9, 9], [9, 9, 9, 9], [9, 9, 9, 9]]:
+        results.append(TestResult(3, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(3, True, 'ACCESS'))
 
     return results

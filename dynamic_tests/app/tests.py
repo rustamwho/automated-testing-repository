@@ -32,8 +32,9 @@ TEST_FILE_TEST_CASE = {
     'module_8/task_2_cat.py': tc.TEST_CASE_module_8_task_2,
 }
 
-TEST_FILE_RUNNING_TEST = {
+TEST_FILE_IMPORT_TEST = {
     'module_10/task_1_mean_function.py': twi.testing_module_10_task_1,
+    'module_10/task_2_filling_matrix.py': twi.testing_module_10_task_2,
 }
 
 
@@ -67,7 +68,7 @@ def testing(solutions_dir: str) -> tuple[int, int, int]:
             if any(res.comment == 'TIMEOUT' for res in results):
                 timeout_count += 1
 
-    for solution_file, tester in TEST_FILE_RUNNING_TEST.items():
+    for solution_file, tester in TEST_FILE_IMPORT_TEST.items():
         _solution_file = os.path.join(solutions_dir, solution_file)
         if not os.path.exists(_solution_file):
             continue
@@ -83,5 +84,5 @@ def testing(solutions_dir: str) -> tuple[int, int, int]:
                 accepted_solutions += 1
 
     return (accepted_solutions,
-            len(TEST_FILE_TEST_CASE) + len(TEST_FILE_RUNNING_TEST),
+            len(TEST_FILE_TEST_CASE) + len(TEST_FILE_IMPORT_TEST),
             timeout_count)
