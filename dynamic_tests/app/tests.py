@@ -30,7 +30,8 @@ TEST_FILE_TEST_CASE = {
     'module_7/task_5_identical_numbers.py': tc.TEST_CASE_module_7_task_5,
     'module_8/task_1_change_letters.py': tc.TEST_CASE_module_8_task_1,
     'module_8/task_2_cat.py': tc.TEST_CASE_module_8_task_2,
-    'module_10/task_3_honors_students.py': tc.TEST_CASE_module_10_task_3
+    'module_10/task_3_honors_students.py': tc.TEST_CASE_module_10_task_3,
+    'module_10/task_5_list_conversion.py': tc.TEST_CASE_module_10_task_5,
 }
 
 TEST_FILE_IMPORT_TEST = {
