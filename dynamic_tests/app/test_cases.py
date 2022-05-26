@@ -175,7 +175,12 @@ TEST_CASE_module_10_task_3 = {
 }
 
 TEST_CASE_module_10_task_5 = {
-    '': ('[18.9, 37.1, 10.6, 95.5, 4.7, 78.9, 21.1, 1171.7, 146.9, 21.8, 6.0, 86.9]',
-         "['racecar', 'civic', 'TATTARRATTAT', 'malayalam']",
-         24840)
+    '': (
+    '[18.9, 37.1, 10.6, 95.5, 4.7, 78.9, 21.1, 1171.7, 146.9, 21.8, 6.0, 86.9]',
+    "['racecar', 'civic', 'TATTARRATTAT', 'malayalam']",
+    24840)
+}
+
+TEST_CASE_module_10_task_6 = {
+    '8 -11 4 3 6': '64 121 16 9 36',
 }

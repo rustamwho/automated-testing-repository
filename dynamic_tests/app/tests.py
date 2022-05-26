@@ -32,6 +32,7 @@ TEST_FILE_TEST_CASE = {
     'module_8/task_2_cat.py': tc.TEST_CASE_module_8_task_2,
     'module_10/task_3_honors_students.py': tc.TEST_CASE_module_10_task_3,
     'module_10/task_5_list_conversion.py': tc.TEST_CASE_module_10_task_5,
+    'module_10/task_6_enumerate.py': tc.TEST_CASE_module_10_task_6,
 }
 
 TEST_FILE_IMPORT_TEST = {
