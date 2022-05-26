@@ -33,6 +33,7 @@ TEST_FILE_TEST_CASE = {
     'module_10/task_3_honors_students.py': tc.TEST_CASE_module_10_task_3,
     'module_10/task_5_list_conversion.py': tc.TEST_CASE_module_10_task_5,
     'module_10/task_6_enumerate.py': tc.TEST_CASE_module_10_task_6,
+    'module_10/task_7_inside_ball.py': tc.TEST_CASE_module_10_task_7,
 }
 
 TEST_FILE_IMPORT_TEST = {
