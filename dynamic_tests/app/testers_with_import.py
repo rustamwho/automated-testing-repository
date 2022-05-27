@@ -140,3 +140,51 @@ def testing_module_10_task_4(base_dir: str) -> list[TestResult]:
         results.append(TestResult(0, True, 'ACCESS'))
 
     return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_10_task_8(base_dir: str) -> list[TestResult]:
+    try:
+        reload_module('module_10.task_8_negative_non_negative')
+        from module_10.task_8_negative_non_negative import is_non_negative_num
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    results = []
+    if is_non_negative_num('10.34ab') != False:
+        results.append(TestResult(0, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(0, True, 'ACCESS'))
+
+    if is_non_negative_num('10.45') != True:
+        results.append(TestResult(1, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(1, True, 'ACCESS'))
+
+    if is_non_negative_num('-18') != False:
+        results.append(TestResult(2, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(2, True, 'ACCESS'))
+
+    if is_non_negative_num('123.122.12') != False:
+        results.append(TestResult(3, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(3, True, 'ACCESS'))
+
+    if is_non_negative_num('987') != True:
+        results.append(TestResult(4, False, 'WRONG ANSWER'))
+    else:
+        results.append(TestResult(4, True, 'ACCESS'))
+
+    return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_13_task_2(base_dir: str) -> list[TestResult]:
+    try:
+        from task_2_classes import Country, Republic
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    print(Country.__dict__)
+    print(Country in Republic.__bases__)

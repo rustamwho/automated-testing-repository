@@ -40,6 +40,7 @@ TEST_FILE_IMPORT_TEST = {
     'module_10/task_1_mean_function.py': twi.testing_module_10_task_1,
     'module_10/task_2_filling_matrix.py': twi.testing_module_10_task_2,
     'module_10/task_4_info_kwargs_function.py': twi.testing_module_10_task_4,
+    'module_10/task_8_negative_non_negative.py': twi.testing_module_10_task_8,
 }
 
 
