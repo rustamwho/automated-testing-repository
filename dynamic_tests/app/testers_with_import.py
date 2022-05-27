@@ -1,5 +1,6 @@
 import os
 import sys
+import importlib
 
 from tester_with_running import TestResult
 from logger_utils import get_logger
@@ -32,9 +33,29 @@ def with_custom_dir_and_python_path(func):
     return wrapper
 
 
+def reload_module(module_name: str) -> None:
+    """
+    Importing or Re-importing module and its parent modules.
+    I.e. for the case 'from foo.bar import hello' need to reloading 'foo.bar'
+    and 'foo'. And after call main importing.
+
+    :param module_name: full module name with parents.
+    :return: if module is not exists, raise ImportError. Else None.
+    """
+    if '.' in module_name:
+        parent = module_name.split('.')[0]
+        reload_module(parent)
+
+    if module_name in sys.modules:
+        del sys.modules[module_name]
+
+    importlib.import_module(module_name)
+
+
 @with_custom_dir_and_python_path
 def testing_module_10_task_1(base_dir: str) -> list[TestResult]:
     try:
+        reload_module('module_10.task_1_mean_function')
         from module_10.task_1_mean_function import mean
     except ImportError:
         return [TestResult(0, False, 'Import error')]
@@ -71,37 +92,7 @@ def testing_module_10_task_1(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
     try:
-        from module_10.task_2_filling_matrix import matrix
-    except ImportError:
-        return [TestResult(0, False, 'Import error')]
-
-    results = []
-    if matrix() != [[0]]:
-        results.append(TestResult(0, False, 'WRONG ANSWER'))
-    else:
-        results.append(TestResult(0, True, 'ACCESS'))
-
-    if matrix(3) != [[0, 0, 0], [0, 0, 0], [0, 0, 0]]:
-        results.append(TestResult(1, False, 'WRONG ANSWER'))
-    else:
-        results.append(TestResult(1, True, 'ACCESS'))
-
-    if matrix(2, 5) != [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]:
-        results.append(TestResult(2, False, 'WRONG ANSWER'))
-    else:
-        results.append(TestResult(2, True, 'ACCESS'))
-
-    if matrix(3, 4, 9) != [[9, 9, 9, 9], [9, 9, 9, 9], [9, 9, 9, 9]]:
-        results.append(TestResult(3, False, 'WRONG ANSWER'))
-    else:
-        results.append(TestResult(3, True, 'ACCESS'))
-
-    return results
-
-
-@with_custom_dir_and_python_path
-def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
-    try:
+        reload_module('module_10.task_2_filling_matrix')
         from module_10.task_2_filling_matrix import matrix
     except ImportError:
         return [TestResult(0, False, 'Import error')]
@@ -133,6 +124,7 @@ def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_10_task_4(base_dir: str) -> list[TestResult]:
     try:
+        reload_module('module_10.task_4_info_kwargs_function')
         from module_10.task_4_info_kwargs_function import info_kwargs
     except ImportError:
         return [TestResult(0, False, 'Import error')]
