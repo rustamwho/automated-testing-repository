@@ -242,11 +242,79 @@ def testing_module_11_task_1(base_dir: str) -> list[TestResult]:
 
 
 @with_custom_dir_and_python_path
-def testing_module_13_task_2(base_dir: str) -> list[TestResult]:
+def testing_module_12_task_1(base_dir: str) -> list[TestResult]:
     try:
-        from task_2_classes import Country, Republic
+        reload_module('module_12.task_1_book_card')
+        from module_12.task_1_book_card import BookCard
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
-    print(Country.__dict__)
-    print(Country in Republic.__bases__)
+    methods = ('__init__', '__lt__', '__eq__')
+
+    private_attrs = ('_author', '_title', '_publishing_house', '_year',
+                     '_num_pages', '_num_copies')
+    annotations = BookCard.__dict__.get('__annotations__')
+
+    # If not exists all need private attributes
+    if not all(attr in annotations for attr in private_attrs):
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    # If methods not implemented
+    if not all(meth in BookCard.__dict__ for meth in methods):
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    results = []
+    # Checking setters and getters for all attributes
+    try:
+        book_card = BookCard(author='Рустам',
+                             title='Крутая книга',
+                             publishing_house='Дом №1',
+                             year=2022,
+                             num_pages=500,
+                             num_copies=1000000)
+
+        book_card.author = 'Не Рустам'
+        if book_card._author != 'Не Рустам' or book_card.author != 'Не Рустам':
+            results.append(TestResult(0, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(0, True, 'ACCESS'))
+
+        book_card.title = 'Не Крутая книга'
+        if (book_card._title != 'Не Крутая книга' or
+                book_card.title != 'Не Крутая книга'):
+            results.append(TestResult(1, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(1, True, 'ACCESS'))
+
+        book_card.publishing_house = 'Дом №2'
+        if (book_card._publishing_house != 'Дом №2' or
+                book_card.publishing_house != 'Дом №2'):
+            results.append(TestResult(2, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(2, True, 'ACCESS'))
+
+        book_card.year = 2023
+        if book_card._year != 2023 or book_card.year != 2023:
+            results.append(TestResult(3, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(3, True, 'ACCESS'))
+
+        book_card.num_pages = 200
+        if book_card._num_pages != 200 or book_card.num_pages != 200:
+            results.append(TestResult(4, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(4, True, 'ACCESS'))
+
+        book_card.num_copies = 1000
+        if book_card._num_copies != 1000 or book_card.num_copies != 1000:
+            results.append(TestResult(4, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(4, True, 'ACCESS'))
+    except TypeError:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+    except NameError:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+    except AttributeError:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    return results
