@@ -180,6 +180,68 @@ def testing_module_10_task_8(base_dir: str) -> list[TestResult]:
 
 
 @with_custom_dir_and_python_path
+def testing_module_11_task_1(base_dir: str) -> list[TestResult]:
+    try:
+        reload_module('module_11.task_1_vector')
+        from module_11.task_1_vector import Position
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    # If any of methods is not implemented, return WRONG ANSWER
+    methods = ('__add__', '__sub__', '__mul__', '__floordiv__',
+               '__truediv__', '__mod__')
+    if not all(method in Position.__dict__ for method in methods):
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    p1 = Position(24, 36)
+    p2 = Position(12, 18)
+
+    results = []
+    try:
+        add_pos = p1 + p2
+        if add_pos.x != 36 or add_pos.y != 54:
+            results.append(TestResult(0, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(0, True, 'ACCESS'))
+
+        sub_pos = p1 - p2
+        if sub_pos.x != 12 or sub_pos.y != 18:
+            results.append(TestResult(1, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(1, True, 'ACCESS'))
+
+        mul_pos = p1 * p2
+        if mul_pos.x != 288 or mul_pos.y != 648:
+            results.append(TestResult(2, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(2, True, 'ACCESS'))
+
+        floordiv_pos = p1 // p2
+        if floordiv_pos.x != 2 or floordiv_pos.y != 2:
+            results.append(TestResult(3, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(3, True, 'ACCESS'))
+
+        truediv_pos = p1 / p2
+        if truediv_pos.x != 2.0 or truediv_pos.y != 2.0:
+            results.append(TestResult(4, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(4, True, 'ACCESS'))
+
+        mod_pos = p1 % p2
+        if mod_pos.x != 0 or mod_pos.y != 0:
+            results.append(TestResult(5, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(5, True, 'ACCESS'))
+    except TypeError as e:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+    except AttributeError as e:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    return results
+
+
+@with_custom_dir_and_python_path
 def testing_module_13_task_2(base_dir: str) -> list[TestResult]:
     try:
         from task_2_classes import Country, Republic
