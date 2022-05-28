@@ -318,3 +318,57 @@ def testing_module_12_task_1(base_dir: str) -> list[TestResult]:
         return [TestResult(0, False, 'WRONG ANSWER')]
 
     return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_13_task_1(base_dir: str) -> list[TestResult]:
+    try:
+        reload_module('module_13.task_1_figure')
+        from module_13.task_1_figure import Shape, Circle, Rectangle, Square
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    # Base class of Circle and Rectangle - Shape
+    for _class in (Circle, Rectangle):
+        bases = _class.__bases__
+        if len(bases) != 1 or Shape not in bases:
+            return [TestResult(0, False, 'WRONG ANSWER')]
+
+    # Base class of Square - Rectangle
+    if len(Square.__bases__) != 1 or Rectangle not in Square.__bases__:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    # Methods must be in all classes
+    methods = ('get_perimeter', 'get_square')
+    for _class in (Shape, Circle, Rectangle, Square):
+        if not all(meth in _class.__dict__ for meth in methods):
+            return [TestResult(0, False, 'WRONG ANSWER')]
+
+    results = []
+    # Checking methods of each class
+    try:
+        circle = Circle(6)
+        if circle.get_square() != 113.04 or circle.get_perimeter() != 37.68:
+            results.append(TestResult(0, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(0, True, 'ACCESS'))
+
+        rectangle = Rectangle(3, 4)
+        if rectangle.get_square() != 12 or rectangle.get_perimeter() != 14:
+            results.append(TestResult(1, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(1, True, 'ACCESS'))
+
+        square = Square(5)
+        if square.get_square() != 25 or square.get_perimeter() != 20:
+            results.append(TestResult(2, False, 'WRONG ANSWER'))
+        else:
+            results.append(TestResult(2, True, 'ACCESS'))
+    except TypeError:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+    except NameError:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+    except AttributeError:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    return results
