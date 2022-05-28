@@ -43,7 +43,8 @@ TEST_FILE_IMPORT_TEST = {
     'module_10/task_8_negative_non_negative.py': twi.testing_module_10_task_8,
     'module_11/task_1_vector.py': twi.testing_module_11_task_1,
     'module_12/task_1_book_card.py': twi.testing_module_12_task_1,
-    'module_13/task_1_figure.py': twi.testing_module_13_task_1
+    'module_13/task_1_figure.py': twi.testing_module_13_task_1,
+    'module_13/task_2_classes.py': twi.testing_module_13_task_2,
 }
 
 

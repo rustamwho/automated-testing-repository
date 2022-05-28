@@ -372,3 +372,31 @@ def testing_module_13_task_1(base_dir: str) -> list[TestResult]:
         return [TestResult(0, False, 'WRONG ANSWER')]
 
     return results
+
+
+@with_custom_dir_and_python_path
+def testing_module_13_task_2(base_dir: str) -> list[TestResult]:
+    try:
+        reload_module('module_13.task_2_classes')
+        from module_13.task_2_classes import (Country, Republic, Monarchy,
+                                              Kingdom)
+    except ImportError:
+        return [TestResult(0, False, 'Import error')]
+
+    # Base class for Republic - Country
+    if len(Republic.__bases__) != 1 or Country not in Republic.__bases__:
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    # Base classes for Kingdom - Country and Monarchy
+    kd_bases = Kingdom.__bases__
+    if len(kd_bases) != 2 or not all(base in kd_bases for base in (Country,
+                                                                   Monarchy)):
+        return [TestResult(0, False, 'WRONG ANSWER')]
+
+    # Methods must be implemented in every class
+    methods = ('__str__', '__repr__')
+    for _cls in (Country, Republic, Monarchy, Kingdom):
+        if not all(meth in _cls.__dict__ for meth in methods):
+            return [TestResult(0, False, 'WRONG ANSWER')]
+
+    return [TestResult(0, True, 'ACCESS')]
