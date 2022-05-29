@@ -55,8 +55,8 @@ def reload_module(module_name: str) -> None:
 @with_custom_dir_and_python_path
 def testing_module_10_task_1(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_10.task_1_mean_function')
-        from module_10.task_1_mean_function import mean
+        reload_module('topic_10.task_1_mean_function')
+        from topic_10.task_1_mean_function import mean
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -92,8 +92,8 @@ def testing_module_10_task_1(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_10.task_2_filling_matrix')
-        from module_10.task_2_filling_matrix import matrix
+        reload_module('topic_10.task_2_filling_matrix')
+        from topic_10.task_2_filling_matrix import matrix
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -124,8 +124,8 @@ def testing_module_10_task_2(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_10_task_4(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_10.task_4_info_kwargs_function')
-        from module_10.task_4_info_kwargs_function import info_kwargs
+        reload_module('topic_10.task_4_info_kwargs_function')
+        from topic_10.task_4_info_kwargs_function import info_kwargs
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -145,8 +145,8 @@ def testing_module_10_task_4(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_10_task_8(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_10.task_8_negative_non_negative')
-        from module_10.task_8_negative_non_negative import is_non_negative_num
+        reload_module('topic_10.task_8_negative_non_negative')
+        from topic_10.task_8_negative_non_negative import is_non_negative_num
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -182,8 +182,8 @@ def testing_module_10_task_8(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_11_task_1(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_11.task_1_vector')
-        from module_11.task_1_vector import Position
+        reload_module('topic_11.task_1_vector')
+        from topic_11.task_1_vector import Position
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -244,8 +244,8 @@ def testing_module_11_task_1(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_12_task_1(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_12.task_1_book_card')
-        from module_12.task_1_book_card import BookCard
+        reload_module('topic_12.task_1_book_card')
+        from topic_12.task_1_book_card import BookCard
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -323,8 +323,8 @@ def testing_module_12_task_1(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_13_task_1(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_13.task_1_figure')
-        from module_13.task_1_figure import Shape, Circle, Rectangle, Square
+        reload_module('topic_13.task_1_figure')
+        from topic_13.task_1_figure import Shape, Circle, Rectangle, Square
     except ImportError:
         return [TestResult(0, False, 'Import error')]
 
@@ -377,8 +377,8 @@ def testing_module_13_task_1(base_dir: str) -> list[TestResult]:
 @with_custom_dir_and_python_path
 def testing_module_13_task_2(base_dir: str) -> list[TestResult]:
     try:
-        reload_module('module_13.task_2_classes')
-        from module_13.task_2_classes import (Country, Republic, Monarchy,
+        reload_module('topic_13.task_2_classes')
+        from topic_13.task_2_classes import (Country, Republic, Monarchy,
                                               Kingdom)
     except ImportError:
         return [TestResult(0, False, 'Import error')]
