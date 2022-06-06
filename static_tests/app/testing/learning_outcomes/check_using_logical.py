@@ -10,7 +10,7 @@ def five(file_list: list):
         return []
     return [
         Recommendation(
-            name='Использует сложные логические операции',
+            name='Использование сложных логических операций',
             task='Модуль 1. Задача 1.'
         )
     ]
@@ -26,7 +26,7 @@ def four(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=f'Использует логическую операцию: {operator}',
+                name=f'Использование логической операции: {operator}',
                 task=task
             )
         )
@@ -44,7 +44,7 @@ def three(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=f'Использует логический оператор: {operator}',
+                name=f'Использование логического оператора: {operator}',
                 task=task
             )
         )

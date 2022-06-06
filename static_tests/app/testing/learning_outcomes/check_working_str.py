@@ -10,7 +10,7 @@ def five(file_list: list):
         return []
     return [
         Recommendation(
-            name='Понимает как хранится строка в памяти: использует ord() или'
+            name='Хранение строки в памяти: использование ord() или'
                  'chr()',
             task='Модуль 4. Задача 1.'
         )
@@ -28,14 +28,14 @@ def four(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=f'Использует методы: {method_name}',
+                name=f'Использование методов: {method_name}',
                 task=task
             )
         )
     if not search_with_func(file_list, func=parsers.is_exist_slices):
         recommendations.append(
             Recommendation(
-                name='Умеет брать срезы',
+                name='Использование срезов',
                 task='Модуль 10. Задача 5.'
             )
         )
@@ -48,21 +48,21 @@ def three(file_list: list):
                             func=parsers.is_exists_str_iteration):
         recommendations.append(
             Recommendation(
-                name='Использует итерирование строк',
+                name='Использование итерирования строк',
                 task='Модуль 4. Задача 1.'
             )
         )
     if not search_with_func(file_list, func=parsers.is_exists_indexing):
         recommendations.append(
             Recommendation(
-                name='Использует индексацию',
+                name='Использование индексации',
                 task='Модуль 4. Задача 1.'
             )
         )
     if not search_with_func(file_list, func=parsers.is_exists_getting_length):
         recommendations.append(
             Recommendation(
-                name='Умеет узнавать длину строки',
+                name='Длина строки',
                 task='Модуль 10. Задача 5.'
             )
         )
@@ -70,7 +70,7 @@ def three(file_list: list):
                             func=parsers.is_exists_creating_str):
         recommendations.append(
             Recommendation(
-                name='Умеет создавать строку',
+                name='Создание строки',
                 task='Модуль 4. Задача 1.'
             )
         )

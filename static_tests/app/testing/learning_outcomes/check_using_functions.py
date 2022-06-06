@@ -30,7 +30,7 @@ def five(file_list: list):
                                 function_name=function_name):
             recommendations.append(
                 Recommendation(
-                    name=f'Использует функцию {function_name}()',
+                    name=f'Использование функции {function_name}()',
                     task=task
                 ))
 
@@ -43,7 +43,7 @@ def four(file_list: list):
                             pattern='lambda'):
         recommendations.append(
             Recommendation(
-                name='Умеет использовать лямбда выражения',
+                name='Использование лямбда выражения',
                 task='Модуль 10. Задача 8.'
             ))
 
@@ -54,7 +54,7 @@ def four(file_list: list):
             text = '**kwargs' if 'k' in pattern else '*args'
             recommendations.append(
                 Recommendation(
-                    name=f'Использует аргументы {text}',
+                    name=f'Использование аргументов {text}',
                     task=task
                 ))
 
@@ -76,13 +76,13 @@ def three(file_list: list):
     if not is_using_functions:
         recommendations.append(
             Recommendation(
-                name='Умеет создавать функции',
+                name='Создание функции',
                 task='Модуль 6. Задача 4.'
             ))
     if not is_using_args:
         recommendations.append(
             Recommendation(
-                name='Умеет передавать параметры в функцию',
+                name='Передача параметров в функцию',
                 task='Модуль 6. Задача 4.'
             ))
 
@@ -90,7 +90,7 @@ def three(file_list: list):
                             pattern='return'):
         recommendations.append(
             Recommendation(
-                name='Использует оператор возврата значений',
+                name='Использование оператора возврата значений',
                 task='Модуль 6. Задача 4.'
             ))
     return recommendations

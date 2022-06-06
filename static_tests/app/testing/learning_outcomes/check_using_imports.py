@@ -7,7 +7,7 @@ from testing.utils import get_module_info
 def five(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_import_alias):
         return [Recommendation(
-            name='Умеет использовать псведонимы',
+            name='Использование псведонимов',
             task='Модуль 10. Задача 5.'
         )]
     return []
@@ -16,7 +16,7 @@ def five(file_list: list):
 def four(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_import_from):
         return [Recommendation(
-            name='Использует конструкцию from',
+            name='Использование конструкции from',
             task='Модуль 10. Задача 5.'
         )]
     return []
@@ -34,7 +34,7 @@ def three(file_list: list):
         return []
 
     return [Recommendation(
-        name='Умеет импортировать модули',
+        name='Импортирование модулей',
         task='Модуль 8. Задача 1.'
     )]
 

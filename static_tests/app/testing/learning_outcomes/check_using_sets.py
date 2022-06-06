@@ -8,7 +8,7 @@ def five(file_list: list):
     if not search_with_func(file_list, parsers.is_exists_generator_of_sets):
         recommendations.append(
             Recommendation(
-                name=f'Умеет использовать генераторы множества',
+                name=f'Использование генераторов множества',
                 task='Модуль 7. Задача 3.'
             )
         )
@@ -16,7 +16,7 @@ def five(file_list: list):
                             method_name='issuperset|issubset|isdisjoint'):
         recommendations.append(
             Recommendation(
-                name=(f'Умеет использовать методы для подмножеств или '
+                name=(f'Использование методов для подмножеств или '
                       f'надмножеств: issuperset(), или issubset(), или '
                       f'isdisjoint()'),
                 task='Модуль 7. Задача 5.'
@@ -33,7 +33,7 @@ def four(file_list: list):
                                          'symmetric_difference_update')):
         recommendations.append(
             Recommendation(
-                name=('Умеет использовать методы для изменения множества:'
+                name=('Использование методов для изменения множества:'
                       'или update(), или intersection_update(), '
                       'или difference_update(), '
                       'или symmetric_difference_update()'),
@@ -44,7 +44,7 @@ def four(file_list: list):
                                          'symmetric_difference')):
         recommendations.append(
             Recommendation(
-                name=('Умеет использовать методы: union(), или intersection(),'
+                name=('Использование методов: union(), или intersection(),'
                       'или difference(), или symmetric_difference()'),
                 task='Модуль 7. Задача 2.'
             ))
@@ -52,7 +52,7 @@ def four(file_list: list):
                             method_name='remove|discard|pop|clear'):
         recommendations.append(
             Recommendation(
-                name=('Умеет удалять из множества - либо remove(), либо'
+                name=('Удаление из множества - либо remove(), либо'
                       'discard(), либо pop(), либо clear()'),
                 task='Модуль 7. Задача 3.'
             ))
@@ -60,7 +60,7 @@ def four(file_list: list):
                             method_name='add'):
         recommendations.append(
             Recommendation(
-                name='Умеет добавлять элементы в множество - add()',
+                name='Добавление элементов в множество - add()',
                 task='Модуль 7. Задача 1.'
             ))
     return recommendations
@@ -72,20 +72,20 @@ def three(file_list: list):
                             function_name='sum|min|max'):
         recommendations.append(
             Recommendation(
-                name=('Использует встроенные функции: sum(), или min(), '
+                name=('Использование встроенних функций: sum(), или min(), '
                       'или max()'),
                 task='Модуль 7. Задача 2.'
             ))
     if not search_with_func(file_list, parsers.is_exists_getting_length):
         recommendations.append(
             Recommendation(
-                name='Умеет узнавать длину множества',
+                name='Длина множества',
                 task='Модуль 7. Задача 1.'
             ))
     if not search_with_func(file_list, parsers.is_exists_creating_set):
         recommendations.append(
             Recommendation(
-                name='Умеет создавать множество',
+                name='Создание множества',
                 task='Модуль 7. Задача 4.'
             ))
     return recommendations
