@@ -6,7 +6,7 @@ from testing.helpers import get_score_from_maintainability_indexes
 def get_learning_outcome(file_list):
     learning_outcome = LearningOutcome(
         name=('Понимает сложность функций и методов класса, пишет код с '
-              'наименьшей сложностью (индекс поддерживаемости)'),
+              'наименьшей сложностью'),
     )
 
     if not file_list:

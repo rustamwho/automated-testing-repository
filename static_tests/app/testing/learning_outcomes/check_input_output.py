@@ -12,14 +12,14 @@ def five(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=f'Использует параметр: {param}',
+                name=f'Использование параметра: {param}',
                 task=task
             )
         )
     if not search_with_func(file_list, func=parsers.is_exists_print_f_str):
         recommendations.append(
             Recommendation(
-                name=f'Умеет выводить данные в текстовом оформлении',
+                name=f'Вывод данных в текстовом оформлении',
                 task='Модуль 6. Задача 2.'
             )
         )
@@ -32,7 +32,7 @@ def four(file_list: list):
                             func=parsers.is_exists_print_line_break):
         recommendations.append(
             Recommendation(
-                name='Умеет выводить данные с переносом строки',
+                name='Вывод данных с переносом строки',
                 task='Модуль 3. Задача 1.'
             )
         )
@@ -40,7 +40,7 @@ def four(file_list: list):
                             func=parsers.is_exists_input_with_prompt):
         recommendations.append(
             Recommendation(
-                name='Использует параметр приглашение в input()',
+                name='Использование параметра приглашения в input()',
                 task='Модуль 3. Задача 1.'
             )
         )
@@ -55,7 +55,7 @@ def three(file_list: list):
                                 function_name=function_name):
             recommendations.append(
                 Recommendation(
-                    name=f'Умеет реализовывать: {function_name}',
+                    name=f'Реализация: {function_name}',
                     task=task
                 )
             )

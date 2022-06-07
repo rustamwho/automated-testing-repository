@@ -9,7 +9,7 @@ def five(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_regex_matching):
         recommendations.append(
             Recommendation(
-                name=f'Умеет осуществлять поиск совпадения',
+                name=f'Поиск совпадений',
                 task='Модуль 8. Задача 2.'
             ))
     return recommendations
@@ -20,7 +20,7 @@ def four(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_multiple_regex):
         recommendations.append(
             Recommendation(
-                name=f'Умеет использовать группы регулярных выражений',
+                name=f'Использование групп регулярных выражений',
                 task='Модуль 8. Задача 1.'
             ))
     return recommendations
@@ -31,7 +31,7 @@ def three(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_regex_character):
         recommendations.append(
             Recommendation(
-                name='Использует основной синтаксис (d, D, w, W, b, B, s, S)',
+                name='Использование основного синтаксиса (d, D, w, W, b, B, s, S)',
                 task='Модуль 8. Задача 1.'
             ))
 
@@ -39,7 +39,7 @@ def three(file_list: list):
                             method_name='rstrip|lstrip|strip'):
         recommendations.append(
             Recommendation(
-                name='Использует rstrip(), или lstrip(), или strip()',
+                name='Использование rstrip(), или lstrip(), или strip()',
                 task='Модуль 8. Задача 1.'
             ))
 
@@ -53,7 +53,7 @@ def three(file_list: list):
     if not is_regex_imported:
         recommendations.append(
             Recommendation(
-                name='Использует модуль re',
+                name='Использование модуля re',
                 task='Модуль 8. Задача 1.'
             ))
 

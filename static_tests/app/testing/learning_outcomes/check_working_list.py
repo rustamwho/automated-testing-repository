@@ -9,7 +9,7 @@ def five(file_list: list):
                             pattern=r'.ljust\(|.rjust\('):
         recommendations.append(
             Recommendation(
-                name=f'Умеет использовать функции ljust() или rjust()',
+                name=f'Использование функции ljust() или rjust()',
                 task='Модуль 6. Задача 2.'
             )
         )
@@ -18,27 +18,27 @@ def five(file_list: list):
             func=parsers.is_exists_iteration_through_nested_list):
         recommendations.append(
             Recommendation(
-                name=f'Умеет перебирать элементы вложенных списков',
+                name=f'Перебор элементов вложенных списков',
                 task='Модуль 6. Задача 2.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_function,
                             function_name='min|max|len'):
         recommendations.append(
             Recommendation(
-                name=(f'Использует функции min() или max(), или len() со '
+                name=(f'Использование функции min() или max(), или len() со '
                       f'вложенными списками'),
                 task='Модуль 6. Задача 4.'
             ))
     if not search_with_func(file_list, parsers.is_exists_indexing_nested_list):
         recommendations.append(
             Recommendation(
-                name=f'Использует индексацию с вложенными списками',
+                name=f'Использование индексации с вложенными списками',
                 task='Модуль 6. Задача 2.'
             ))
     if not search_with_func(file_list, parsers.is_exists_creating_nested_list):
         recommendations.append(
             Recommendation(
-                name=f'Умеет создавать вложенные списки',
+                name=f'Создание вложенных списков',
                 task='Модуль 6. Задача 2.'
             ))
     return recommendations
@@ -50,35 +50,35 @@ def four(file_list: list):
                             func=parsers.is_exists_list_expression):
         recommendations.append(
             Recommendation(
-                name='Использует списочные выражения',
+                name='Использование списочных выражений',
                 task='Модуль 6. Задача 2.'
             ))
     if not search_with_func(file_list,
                             func=parsers.is_exists_del_list):
         recommendations.append(
             Recommendation(
-                name='Умеет удалять элементы - del',
+                name='Удаление элементов - del',
                 task='Модуль 6. Задача 5.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_method,
                             method_name='extend'):
         recommendations.append(
             Recommendation(
-                name='Умеет расширять списки - extend',
+                name='Расширение списков - extend',
                 task='Модуль 6. Задача 5.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_method,
                             method_name='insert'):
         recommendations.append(
             Recommendation(
-                name='Умеет добавлять элементы в списки - insert',
+                name='Добавление элементов в списки - insert',
                 task='Модуль 6. Задача 5.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_method,
                             method_name='append'):
         recommendations.append(
             Recommendation(
-                name='Умеет добавлять элементы в списки - append',
+                name='Добавление элементов в списки - append',
                 task='Модуль 6. Задача 2.'
             ))
     return recommendations
@@ -89,25 +89,25 @@ def three(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exist_slices):
         recommendations.append(
             Recommendation(
-                name=f'Использует срезы',
+                name=f'Использование срезов',
                 task='Модуль 4. Задача 2.'
             ))
     if not search_with_func(file_list, func=parsers.is_exists_indexing):
         recommendations.append(
             Recommendation(
-                name=f'Использует индексацию',
+                name=f'Использование индексации',
                 task='Модуль 6. Задача 1.'
             ))
     if not search_with_func(file_list, func=parsers.is_exists_getting_length):
         recommendations.append(
             Recommendation(
-                name=f'Умеет узнавать длину списка',
+                name=f'Длина списка',
                 task='Модуль 6. Задача 2.'
             ))
     if not search_with_func(file_list, func=parsers.is_exists_creating_list):
         recommendations.append(
             Recommendation(
-                name=f'Умеет создавать списки',
+                name=f'Создание списков',
                 task='Модуль 10. Задача 5.'
             ))
     return recommendations

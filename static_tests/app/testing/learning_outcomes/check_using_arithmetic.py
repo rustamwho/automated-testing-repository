@@ -11,7 +11,7 @@ def five(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=(f'Использует перегрузку арифметических операций: '
+                name=(f'Использование перегрузки арифметических операций: '
                       f'{operator}'),
                 task='Модуль 11. Задача 1.'
             )
@@ -29,7 +29,7 @@ def four(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=f'Использует сокращенный вид: {operator}',
+                name=f'Использование сокращенного вида: {operator}',
                 task=task
             )
         )
@@ -44,7 +44,7 @@ def three(file_list: list):
             continue
         recommendations.append(
             Recommendation(
-                name=f'Использует: {operator}',
+                name=f'Использование: {operator}',
                 task='Модуль 3. Задача 1.'
             )
         )

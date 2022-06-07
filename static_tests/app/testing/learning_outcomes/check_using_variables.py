@@ -15,7 +15,7 @@ def is_using_constants(file_list: list):
             return True, None
     logger.debug('Не использует константы с правильным оформлением')
     return False, Recommendation(
-        name='Использует константы с правильным оформлением',
+        name='Использование констант с правильным оформлением',
         task='Модуль 13. Задача 1.'
     )
 
@@ -28,7 +28,7 @@ def is_using_local_vars(file_list: list):
             return True, None
     logger.debug('Не использует локальные переменные')
     return False, Recommendation(
-        name='Использует локальные переменные',
+        name='Использование локальных переменных',
         task='Модуль 11. Задача 1.'
     )
 
@@ -38,9 +38,9 @@ def is_using_global_vars(file_list: list):
         module_info = cdmpyparser.getBriefModuleInfoFromFile(file)
         if module_info.globals:
             return True, None
-    logger.debug('Не использует глобальные переменные')
+    logger.debug('Использует глобальные переменные')
     return False, Recommendation(
-        name='Использует глобальные переменные',
+        name='Использование глобальных переменных',
         task='Модуль 4. Задача 1.'
     )
 
@@ -52,7 +52,7 @@ def is_using_vars(file_list: list):
             return True, None
     logger.debug('Не обьявляет переменные')
     return False, Recommendation(
-        name='Обьявляет переменные',
+        name='Обьявление переменных',
         task='Модуль 4. Задача 1.'
     )
 

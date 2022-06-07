@@ -8,7 +8,7 @@ def five(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_nested_loop):
         recommendations.append(
             Recommendation(
-                name=f'Умеет использовать вложенные циклы: for-for',
+                name=f'Использование вложенных циклов: for-for',
                 task='Модуль 6. Задача 3.'
             )
         )
@@ -25,13 +25,13 @@ def four(file_list: list):
                                 pattern=operator):
             recommendations.append(
                 Recommendation(
-                    name=f'Умеет использовать {operator}',
+                    name=f'Использование {operator}',
                     task=task
                 ))
     if not search_with_func(file_list, func=parsers.is_exists_for_range):
         recommendations.append(
             Recommendation(
-                name=f'Умеет использовать for с range',
+                name=f'Использование for с range',
                 task='Модуль 4. Задача 1.'
             ))
     return recommendations
@@ -47,7 +47,7 @@ def three(file_list: list):
             operator = '' if operator == 'if' else operator
             recommendations.append(
                 Recommendation(
-                    name=f'Умеет использовать конструкцию if - {operator}',
+                    name=f'Использование конструкции if - {operator}',
                     task=task
                 ))
     return recommendations
