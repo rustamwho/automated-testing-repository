@@ -17,7 +17,7 @@ function Auth() {
   const navigate = useNavigate();
 
   async function login() {
-    fetch("/auth/token/login/", {
+    fetch("/api/auth/token/login/", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

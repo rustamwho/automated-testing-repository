@@ -9,7 +9,7 @@ function Activate() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    fetch("/users/activation/", {
+    fetch("/api/users/activation/", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
