@@ -9,7 +9,7 @@ def five(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Использование генераторов множества',
-                task='Модуль 7. Задача 3.'
+                task='Тема 7. Задача 3.'
             )
         )
     if not search_with_func(file_list, parsers.is_using_method,
@@ -19,7 +19,7 @@ def five(file_list: list):
                 name=(f'Использование методов для подмножеств или '
                       f'надмножеств: issuperset(), или issubset(), или '
                       f'isdisjoint()'),
-                task='Модуль 7. Задача 5.'
+                task='Тема 7. Задача 5.'
             )
         )
     return recommendations
@@ -37,7 +37,7 @@ def four(file_list: list):
                       'или update(), или intersection_update(), '
                       'или difference_update(), '
                       'или symmetric_difference_update()'),
-                task='Модуль 7. Задача 4.'
+                task='Тема 7. Задача 4.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_method,
                             method_name=('union|intersection|difference|'
@@ -46,7 +46,7 @@ def four(file_list: list):
             Recommendation(
                 name=('Использование методов: union(), или intersection(),'
                       'или difference(), или symmetric_difference()'),
-                task='Модуль 7. Задача 2.'
+                task='Тема 7. Задача 2.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_method,
                             method_name='remove|discard|pop|clear'):
@@ -54,14 +54,14 @@ def four(file_list: list):
             Recommendation(
                 name=('Удаление из множества - либо remove(), либо'
                       'discard(), либо pop(), либо clear()'),
-                task='Модуль 7. Задача 3.'
+                task='Тема 7. Задача 3.'
             ))
     if not search_with_func(file_list, func=parsers.is_using_method,
                             method_name='add'):
         recommendations.append(
             Recommendation(
                 name='Добавление элементов в множество - add()',
-                task='Модуль 7. Задача 1.'
+                task='Тема 7. Задача 1.'
             ))
     return recommendations
 
@@ -74,19 +74,19 @@ def three(file_list: list):
             Recommendation(
                 name=('Использование встроенних функций: sum(), или min(), '
                       'или max()'),
-                task='Модуль 7. Задача 2.'
+                task='Тема 7. Задача 2.'
             ))
     if not search_with_func(file_list, parsers.is_exists_getting_length):
         recommendations.append(
             Recommendation(
                 name='Длина множества',
-                task='Модуль 7. Задача 1.'
+                task='Тема 7. Задача 1.'
             ))
     if not search_with_func(file_list, parsers.is_exists_creating_set):
         recommendations.append(
             Recommendation(
                 name='Создание множества',
-                task='Модуль 7. Задача 4.'
+                task='Тема 7. Задача 4.'
             ))
     return recommendations
 

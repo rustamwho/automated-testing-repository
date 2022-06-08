@@ -8,7 +8,7 @@ def five(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_import_alias):
         return [Recommendation(
             name='Использование псведонимов',
-            task='Модуль 10. Задача 5.'
+            task='Тема 10. Задача 5.'
         )]
     return []
 
@@ -17,7 +17,7 @@ def four(file_list: list):
     if not search_with_func(file_list, func=parsers.is_exists_import_from):
         return [Recommendation(
             name='Использование конструкции from',
-            task='Модуль 10. Задача 5.'
+            task='Тема 10. Задача 5.'
         )]
     return []
 
@@ -35,7 +35,7 @@ def three(file_list: list):
 
     return [Recommendation(
         name='Импортирование модулей',
-        task='Модуль 8. Задача 1.'
+        task='Тема 8. Задача 1.'
     )]
 
 

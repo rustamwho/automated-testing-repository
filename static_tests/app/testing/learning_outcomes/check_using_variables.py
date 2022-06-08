@@ -16,7 +16,7 @@ def is_using_constants(file_list: list):
     logger.debug('Не использует константы с правильным оформлением')
     return False, Recommendation(
         name='Использование констант с правильным оформлением',
-        task='Модуль 13. Задача 1.'
+        task='Тема 13. Задача 1.'
     )
 
 
@@ -29,7 +29,7 @@ def is_using_local_vars(file_list: list):
     logger.debug('Не использует локальные переменные')
     return False, Recommendation(
         name='Использование локальных переменных',
-        task='Модуль 11. Задача 1.'
+        task='Тема 11. Задача 1.'
     )
 
 
@@ -41,7 +41,7 @@ def is_using_global_vars(file_list: list):
     logger.debug('Использует глобальные переменные')
     return False, Recommendation(
         name='Использование глобальных переменных',
-        task='Модуль 4. Задача 1.'
+        task='Тема 4. Задача 1.'
     )
 
 
@@ -53,7 +53,7 @@ def is_using_vars(file_list: list):
     logger.debug('Не обьявляет переменные')
     return False, Recommendation(
         name='Обьявление переменных',
-        task='Модуль 4. Задача 1.'
+        task='Тема 4. Задача 1.'
     )
 
 

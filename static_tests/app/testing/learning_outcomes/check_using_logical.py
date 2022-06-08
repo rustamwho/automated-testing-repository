@@ -11,16 +11,16 @@ def five(file_list: list):
     return [
         Recommendation(
             name='Использование сложных логических операций',
-            task='Модуль 1. Задача 1.'
+            task='Тема 1. Задача 1.'
         )
     ]
 
 
 def four(file_list: list):
     recommendations = []
-    for operator, task in (('not', 'Модуль 10. Задача 2.'),
-                           ('and', 'Модуль 10. Задача 2.'),
-                           ('or', 'Модуль 1. Задача 1.')):
+    for operator, task in (('not', 'Тема 10. Задача 2.'),
+                           ('and', 'Тема 10. Задача 2.'),
+                           ('or', 'Тема 1. Задача 1.')):
         if search_with_func(file_list, operator=operator,
                             func=parsers.is_exists_logic_operator):
             continue
@@ -35,10 +35,10 @@ def four(file_list: list):
 
 def three(file_list: list):
     recommendations = []
-    for operator, task in (('<|>', 'Модуль 4. Задача 1.'),
-                           ('>=|<=', 'Модуль 4. Задача 1.'),
-                           ('!=', 'Модуль 7. Задача 1.'),
-                           ('==', 'Модуль 6. Задача 1.')):
+    for operator, task in (('<|>', 'Тема 4. Задача 1.'),
+                           ('>=|<=', 'Тема 4. Задача 1.'),
+                           ('!=', 'Тема 7. Задача 1.'),
+                           ('==', 'Тема 6. Задача 1.')):
         if search_with_func(file_list, operator=operator,
                             func=parsers.is_exists_logic_operator):
             continue

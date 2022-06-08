@@ -13,7 +13,7 @@ def five(file_list: list):
             Recommendation(
                 name=(f'Использование перегрузки арифметических операций: '
                       f'{operator}'),
-                task='Модуль 11. Задача 1.'
+                task='Тема 11. Задача 1.'
             )
         )
     return recommendations
@@ -21,9 +21,9 @@ def five(file_list: list):
 
 def four(file_list: list):
     recommendations = []
-    for operator, task in (('-=', 'Модуль 6. Задача 1.'),
-                           ('*=', 'Модуль 6. Задача 5.'),
-                           ('+=', 'Модуль 6. Задача 2.')):
+    for operator, task in (('-=', 'Тема 6. Задача 1.'),
+                           ('*=', 'Тема 6. Задача 5.'),
+                           ('+=', 'Тема 6. Задача 2.')):
         if search_with_func(file_list, operator=operator,
                             func=parsers.is_exists_arithmetic_operator):
             continue
@@ -45,7 +45,7 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Использование: {operator}',
-                task='Модуль 3. Задача 1.'
+                task='Тема 3. Задача 1.'
             )
         )
     return recommendations

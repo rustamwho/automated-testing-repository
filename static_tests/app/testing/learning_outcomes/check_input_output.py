@@ -5,8 +5,8 @@ from testing.helpers import search_with_func
 
 def five(file_list: list):
     recommendations = []
-    for param, task in (('end', 'Модуль 6. Задача 2.'),
-                        ('sep', 'Модуль 3. Задача 1.')):
+    for param, task in (('end', 'Тема 6. Задача 2.'),
+                        ('sep', 'Тема 3. Задача 1.')):
         if search_with_func(file_list, func=parsers.is_exists_print_with_param,
                             param=param):
             continue
@@ -20,7 +20,7 @@ def five(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Вывод данных в текстовом оформлении',
-                task='Модуль 6. Задача 2.'
+                task='Тема 6. Задача 2.'
             )
         )
     return recommendations
@@ -33,7 +33,7 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Вывод данных с переносом строки',
-                task='Модуль 3. Задача 1.'
+                task='Тема 3. Задача 1.'
             )
         )
     if not search_with_func(file_list,
@@ -41,7 +41,7 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование параметра приглашения в input()',
-                task='Модуль 3. Задача 1.'
+                task='Тема 3. Задача 1.'
             )
         )
     return recommendations
@@ -49,8 +49,8 @@ def four(file_list: list):
 
 def three(file_list: list):
     recommendations = []
-    for function_name, task in (('input', 'Модуль 4. Задача 1.'),
-                                ('print', 'Модуль 4. Задача 1.')):
+    for function_name, task in (('input', 'Тема 4. Задача 1.'),
+                                ('print', 'Тема 4. Задача 1.')):
         if not search_with_func(file_list, func=parsers.is_using_function,
                                 function_name=function_name):
             recommendations.append(

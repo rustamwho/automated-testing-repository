@@ -12,17 +12,17 @@ def five(file_list: list):
         Recommendation(
             name='Хранение строки в памяти: использование ord() или'
                  'chr()',
-            task='Модуль 4. Задача 1.'
+            task='Тема 4. Задача 1.'
         )
     ]
 
 
 def four(file_list: list):
     recommendations = []
-    for method_name, task in (('replace', 'Модуль 10. Задача 8.'),
-                              ('find', 'Модуль 4. Задача 3.'),
-                              ('lower|upper', 'Модуль 4. Задача 2.'),
-                              ('split|join', 'Модуль 6. Задача 2.')):
+    for method_name, task in (('replace', 'Тема 10. Задача 8.'),
+                              ('find', 'Тема 4. Задача 3.'),
+                              ('lower|upper', 'Тема 4. Задача 2.'),
+                              ('split|join', 'Тема 6. Задача 2.')):
         if search_with_func(file_list, func=parsers.is_using_method,
                             method_name=method_name):
             continue
@@ -36,7 +36,7 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование срезов',
-                task='Модуль 10. Задача 5.'
+                task='Тема 10. Задача 5.'
             )
         )
     return recommendations
@@ -49,21 +49,21 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование итерирования строк',
-                task='Модуль 4. Задача 1.'
+                task='Тема 4. Задача 1.'
             )
         )
     if not search_with_func(file_list, func=parsers.is_exists_indexing):
         recommendations.append(
             Recommendation(
                 name='Использование индексации',
-                task='Модуль 4. Задача 1.'
+                task='Тема 4. Задача 1.'
             )
         )
     if not search_with_func(file_list, func=parsers.is_exists_getting_length):
         recommendations.append(
             Recommendation(
                 name='Длина строки',
-                task='Модуль 10. Задача 5.'
+                task='Тема 10. Задача 5.'
             )
         )
     if not search_with_func(file_list,
@@ -71,7 +71,7 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Создание строки',
-                task='Модуль 4. Задача 1.'
+                task='Тема 4. Задача 1.'
             )
         )
     return recommendations
