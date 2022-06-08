@@ -17,15 +17,15 @@ def five(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использует декораторы',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
-    for function_name, task in (('zip', 'Модуль 10. Задача 7.'),
-                                ('enumerate', 'Модуль 10. Задача 6.'),
-                                ('all|any', 'Модуль 10. Задача 3.'),
-                                ('reduce', 'Модуль 10. Задача 5.'),
-                                ('filter', 'Модуль 10. Задача 5.'),
-                                ('map', 'Модуль 10. Задача 5.')):
+    for function_name, task in (('zip', 'Тема 10. Задача 7.'),
+                                ('enumerate', 'Тема 10. Задача 6.'),
+                                ('all|any', 'Тема 10. Задача 3.'),
+                                ('reduce', 'Тема 10. Задача 5.'),
+                                ('filter', 'Тема 10. Задача 5.'),
+                                ('map', 'Тема 10. Задача 5.')):
         if not search_with_func(file_list, func=parsers.is_using_function,
                                 function_name=function_name):
             recommendations.append(
@@ -44,11 +44,11 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование лямбда выражения',
-                task='Модуль 10. Задача 8.'
+                task='Тема 10. Задача 8.'
             ))
 
-    for pattern, task in (('\(.*\*\*kwargs.*\)', 'Модуль 10. Задача 4.'),
-                          ('\(.*\*args.*\)', 'Модуль 10. Задача 1.')):
+    for pattern, task in (('\(.*\*\*kwargs.*\)', 'Тема 10. Задача 4.'),
+                          ('\(.*\*args.*\)', 'Тема 10. Задача 1.')):
         if not search_with_func(file_list, func=parsers.is_exists_pattern,
                                 pattern=pattern):
             text = '**kwargs' if 'k' in pattern else '*args'
@@ -77,13 +77,13 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Создание функции',
-                task='Модуль 6. Задача 4.'
+                task='Тема 6. Задача 4.'
             ))
     if not is_using_args:
         recommendations.append(
             Recommendation(
                 name='Передача параметров в функцию',
-                task='Модуль 6. Задача 4.'
+                task='Тема 6. Задача 4.'
             ))
 
     if not search_with_func(file_list, func=parsers.is_exists_pattern,
@@ -91,7 +91,7 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование оператора возврата значений',
-                task='Модуль 6. Задача 4.'
+                task='Тема 6. Задача 4.'
             ))
     return recommendations
 

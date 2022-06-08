@@ -10,7 +10,7 @@ def five(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Поиск совпадений',
-                task='Модуль 8. Задача 2.'
+                task='Тема 8. Задача 2.'
             ))
     return recommendations
 
@@ -21,7 +21,7 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Использование групп регулярных выражений',
-                task='Модуль 8. Задача 1.'
+                task='Тема 8. Задача 1.'
             ))
     return recommendations
 
@@ -32,7 +32,7 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование основного синтаксиса (d, D, w, W, b, B, s, S)',
-                task='Модуль 8. Задача 1.'
+                task='Тема 8. Задача 1.'
             ))
 
     if not search_with_func(file_list, func=parsers.is_using_method,
@@ -40,7 +40,7 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование rstrip(), или lstrip(), или strip()',
-                task='Модуль 8. Задача 1.'
+                task='Тема 8. Задача 1.'
             ))
 
     is_regex_imported = False
@@ -54,7 +54,7 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование модуля re',
-                task='Модуль 8. Задача 1.'
+                task='Тема 8. Задача 1.'
             ))
 
     return recommendations

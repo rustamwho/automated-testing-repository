@@ -12,14 +12,14 @@ def five(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование множественного наследования',
-                task='Модуль 13. Задача 2.'
+                task='Тема 13. Задача 2.'
             ))
 
     if not search_with_func(file_list, func=parsers.is_exists_super_function):
         recommendations.append(
             Recommendation(
                 name='Использование super()',
-                task='Модуль 13. Задача 2.'
+                task='Тема 13. Задача 2.'
             ))
     return recommendations
 
@@ -31,14 +31,14 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Использование абстрактных классов',
-                task='Модуль 13. Задача 1.'
+                task='Тема 13. Задача 1.'
             ))
 
     if not search_with_func(file_list, func=parsers.is_exists_getter_setters):
         recommendations.append(
             Recommendation(
                 name='Использование геттеров и сеттеров',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
     if not utils.is_using_inheritance(file_list):
@@ -46,7 +46,7 @@ def four(file_list: list):
             Recommendation(
                 name=('Использование наследования в соответствии с правилами '
                       'наследования методов и атрибутов'),
-                task='Модуль 13. Задача 1.'
+                task='Тема 13. Задача 1.'
             ))
 
     return recommendations
@@ -59,35 +59,35 @@ def three(file_list: list):
         recommendations.append(
             Recommendation(
                 name='Указание приватных атрибутов',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
     if not utils.is_using_self(file_list):
         recommendations.append(
             Recommendation(
                 name='Использование ключевого слова self',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
     if not utils.is_using_constructors(file_list):
         recommendations.append(
             Recommendation(
                 name='Использование конструктора',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
     if not utils.is_using_methods(file_list):
         recommendations.append(
             Recommendation(
                 name='Создание методов',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
     if not utils.is_using_classes(file_list):
         recommendations.append(
             Recommendation(
                 name='Объявление классов',
-                task='Модуль 12. Задача 1.'
+                task='Тема 12. Задача 1.'
             ))
 
     return recommendations

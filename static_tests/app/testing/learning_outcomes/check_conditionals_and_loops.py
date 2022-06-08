@@ -9,7 +9,7 @@ def five(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Использование вложенных циклов: for-for',
-                task='Модуль 6. Задача 3.'
+                task='Тема 6. Задача 3.'
             )
         )
     return recommendations
@@ -17,10 +17,10 @@ def five(file_list: list):
 
 def four(file_list: list):
     recommendations = []
-    for operator, task in (('continue', 'Модуль 4. Задача 1.'),
-                           ('break', 'Модуль 6. Задача 3.'),
-                           ('while', 'Модуль 7. Задача 1.'),
-                           ('for', 'Модуль 6. Задача 2.')):
+    for operator, task in (('continue', 'Тема 4. Задача 1.'),
+                           ('break', 'Тема 6. Задача 3.'),
+                           ('while', 'Тема 7. Задача 1.'),
+                           ('for', 'Тема 6. Задача 2.')):
         if not search_with_func(file_list, func=parsers.is_exists_pattern,
                                 pattern=operator):
             recommendations.append(
@@ -32,16 +32,16 @@ def four(file_list: list):
         recommendations.append(
             Recommendation(
                 name=f'Использование for с range',
-                task='Модуль 4. Задача 1.'
+                task='Тема 4. Задача 1.'
             ))
     return recommendations
 
 
 def three(file_list: list):
     recommendations = []
-    for operator, task in (('elif', 'Модуль 4. Задача 3.'),
-                           ('else', 'Модуль 3. Задача 3.'),
-                           ('if', 'Модуль 4. Задача 3.')):
+    for operator, task in (('elif', 'Тема 4. Задача 3.'),
+                           ('else', 'Тема 3. Задача 3.'),
+                           ('if', 'Тема 4. Задача 3.')):
         if not search_with_func(file_list, func=parsers.is_exists_pattern,
                                 pattern=operator):
             operator = '' if operator == 'if' else operator
