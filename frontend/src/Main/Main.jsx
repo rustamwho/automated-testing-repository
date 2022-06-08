@@ -143,8 +143,10 @@ function Main() {
                 </div>
               </div>
               <span style={{
-                color: "#547FA6"
-              }}>{task.description}</span>
+                color: "#547FA6",
+                whiteSpace: "pre-wrap"
+              }}
+                dangerouslySetInnerHTML={{ __html: task.description }}/>
             </div>
           )
           : (

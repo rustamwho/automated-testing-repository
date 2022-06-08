@@ -116,8 +116,8 @@ h4 {
   position: absolute;
   overflow: scroll;
   top: 100px;
-  left: 200px;
-  width: 30%;
+  left: 100px;
+  width: 40%;
   height: min-content;
   min-height: 200px;
   max-height: 70%;
@@ -126,7 +126,7 @@ h4 {
 .checkUrl {
   position: absolute;
   top: 40%;
-  right: 200px;
+  right: 100px;
   display: flex;
   width: 300px;
   height: 260px;
