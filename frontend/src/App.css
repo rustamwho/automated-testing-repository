@@ -114,11 +114,13 @@ h4 {
 
 .topics {
   position: absolute;
-  top: 200px;
+  overflow: scroll;
+  top: 100px;
   left: 200px;
   width: 30%;
   height: min-content;
   min-height: 200px;
+  max-height: 70%;
 }
 
 .checkUrl {
