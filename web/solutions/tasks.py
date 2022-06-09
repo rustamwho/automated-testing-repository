@@ -148,16 +148,24 @@ def dynamic_testing(self, github_url: str, solution_id: int):
         if response.get('result') == 'error':
             set_task_state(self)
             raise Ignore()
+
+        working_code_score = int(response.get('result'))
         create_save_learning_outcome(
             solution,
             'Умеет писать работоспособный код',
-            int(response.get('result')))
+            working_code_score
+        )
+
+        # If none of the tasks passed the unit tests - access_time_score = 2
+        access_time_score = 2 if working_code_score == 2 else int(
+            response.get('access_time'))
         create_save_learning_outcome(
             solution,
             ('Соблюдает время работы программы,указанное в требованиях к '
              'задачам'),
-            int(response.get('access_time'))
+            access_time_score
         )
+
         set_task_state(dynamic_testing_task=self, state=states.SUCCESS)
     except Exception as e:
         logger.error(e)
