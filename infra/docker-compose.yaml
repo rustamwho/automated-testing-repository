@@ -6,7 +6,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ../web/.env
+      - ./.env
 
   web:
     image: rustamwho/atr-web:latest
@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
     env_file:
-      - ../web/.env
+      - ./.env
 
   dynamic-tests:
     image: rustamwho/atr-dynamic-testing:latest
@@ -50,7 +50,7 @@ services:
     build:
       context: ../web
     env_file:
-      - ../web/.env
+      - ./.env
     command: celery -A web worker --loglevel=INFO
     depends_on:
       - web
