@@ -93,6 +93,8 @@ def check_set_status_solution_testing(dynamic_test_task_id: str = None,
     elif all(state == 'SUCCESS' for state in (dt_task_state, st_task_state)):
         new_status = 'SUCCESS'
     else:
+        logger.error(f'dynamic testing task state = {dt_task_state}')
+        logger.error(f'static testing task state = {st_task_state}')
         new_status = 'UNKNOWN'
     solution_testing.status = new_status
     solution_testing.save()
