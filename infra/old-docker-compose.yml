@@ -6,7 +6,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ../web/.env
+      - .env
 
   redis:
     image: redis
@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
     env_file:
-      - ../web/.env
+      - .env
 
   dynamic-tests:
     build:
@@ -56,7 +56,7 @@ services:
     build:
       context: ../web
     env_file:
-      - ../web/.env
+      - .env
     command: celery -A web worker --loglevel=INFO
     depends_on:
       - web
