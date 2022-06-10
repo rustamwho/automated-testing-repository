@@ -75,12 +75,12 @@ def check_set_status_solution_testing(dynamic_test_task_id: str = None,
             solution_testing.status = status
             solution_testing.save()
             return
-
+    logger.info(f'CHECK SET STATUS SOLUTION TESTING dt - {dynamic_test_task_id}, st - {static_test_task_id}, status = {status}')
     if status != 'SUCCESS':
         solution_testing.status = status
         solution_testing.save()
         return
-    if solution_testing.status != 'STARTED' or solution_testing.status != 'PENDING':
+    if solution_testing.status != 'STARTED':
         return
 
     dt_task_state = AsyncResult(solution_testing.dynamic_test_task_id).state
@@ -96,6 +96,9 @@ def check_set_status_solution_testing(dynamic_test_task_id: str = None,
         logger.error(f'dynamic testing task state = {dt_task_state}')
         logger.error(f'static testing task state = {st_task_state}')
         new_status = 'UNKNOWN'
+
+    logger.info(f'new_status - {new_status}')
+
     solution_testing.status = new_status
     solution_testing.save()
 
