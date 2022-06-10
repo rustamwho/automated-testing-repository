@@ -80,7 +80,7 @@ def check_set_status_solution_testing(dynamic_test_task_id: str = None,
         solution_testing.status = status
         solution_testing.save()
         return
-    if solution_testing.status != 'STARTED':
+    if solution_testing.status != 'STARTED' or solution_testing.status != 'PENDING':
         return
 
     dt_task_state = AsyncResult(solution_testing.dynamic_test_task_id).state
@@ -88,7 +88,7 @@ def check_set_status_solution_testing(dynamic_test_task_id: str = None,
 
     if any(state == 'FAILURE' for state in (dt_task_state, st_task_state)):
         new_status = 'FAILURE'
-    elif any(state == 'STARTED' for state in (dt_task_state, st_task_state)):
+    elif any(state == 'STARTED' or state == 'PENDING' for state in (dt_task_state, st_task_state)):
         new_status = 'STARTED'
     elif all(state == 'SUCCESS' for state in (dt_task_state, st_task_state)):
         new_status = 'SUCCESS'
