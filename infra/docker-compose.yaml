@@ -14,6 +14,7 @@ services:
     volumes:
       - static_value:/code/static/
       - media_value:/code/media/
+      - web_value:/code/web
     depends_on:
       - db
     env_file:
@@ -47,10 +48,11 @@ services:
 
   celery:
     restart: always
-    build:
-      context: ../web
+    image: rustamwho/atr-web:latest
     env_file:
       - ./.env
+    volumes:
+      - web_value:/code/web
     command: celery -A web worker --loglevel=INFO
     depends_on:
       - web
@@ -81,3 +83,4 @@ volumes:
   media_value:
   postgres_data:
   frontend_data:
+  web_value:
