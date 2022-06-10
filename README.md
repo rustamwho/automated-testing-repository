@@ -45,9 +45,9 @@ Frontend:
    ```bash
     git clone https://github.com/rustamwho/automated-testing-repository.git
    ```
-4. В директории django-проекта ([web](./web)) отредактируйте файл *.env_example* с переменными окружения и сохраните как *.env*:
+4. В директории django-проекта ([infra](./infra)) создайте файл *.env* с переменными окружения:
 ```yaml
-  DOMAIN=127.0.0.1 # домен сайта
+  DOMAIN=127.0.0.1 # домен сайта или ip сервера
   SITE_NAME=Automated testing repository # название сайта
   
   EMAIL_HOST_USER=test@gmail.com # почтовый ящик с которого будут отправляться письма для активации
