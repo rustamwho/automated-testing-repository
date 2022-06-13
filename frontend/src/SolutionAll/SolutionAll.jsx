@@ -63,10 +63,12 @@ function SolutionAll() {
           newscore = getScore(newscore).toFixed(2)
           setScore(newscore)
           let oldscore = Object.assign({}, init_score);
-          value[1] && value[1].learning_outcomes.map((value) => oldscore[value.score] = oldscore[value.score] + 1);
-          oldscore = getScore(oldscore).toFixed(2)
-          oldscore = (newscore - oldscore).toFixed(2)
-          oldSetScore(oldscore);
+          if (value[1]) {
+              value[1] && value[1].learning_outcomes.map((value) => oldscore[value.score] = oldscore[value.score] + 1);
+              oldscore = getScore(oldscore).toFixed(2)
+              oldscore = (newscore - oldscore).toFixed(2)
+              oldSetScore(oldscore);
+          }
         })
       })
   }, [])
